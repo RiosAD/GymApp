@@ -8,15 +8,52 @@
 import SwiftUI
 
 struct CreateAccountView: View {
+    
+    @State private var firstName = ""
+    @State private var lastName = "" 
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         
-        ZStack(content: {
+        NavigationStack {
             
-            backgroundGradient
-                .ignoresSafeArea()
+            ZStack(content: {
+                
+                backgroundGradient
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 15){
+                    
+                    TextField("First Name", text: $firstName)
+                        .fontWeight(.semibold)
+                        .padding(12)
+                        .background(Color(.systemGray3))
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.horizontal, 30)
             
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        })
+                    
+                    TextField("Last Name", text: $lastName)
+                        .fontWeight(.semibold)
+                        .padding(12)
+                        .background(Color(.systemGray3))
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.horizontal, 30)
+                }
+                .toolbar {
+                    ToolbarItem(placement:.topBarLeading){
+                        Image(systemName: "chevron.left")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .onTapGesture {
+                                dismiss()
+                            }
+                    }
+                }
+          
+            })
+            
+        }
+        
         
     }
 }

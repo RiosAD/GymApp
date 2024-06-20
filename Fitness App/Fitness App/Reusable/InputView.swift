@@ -19,14 +19,14 @@ struct InputView: View {
             
             if isSecureField {
                 SecureField(placeholder, text: $text)
-                    .font(.system(size: 15))
+//                    .font(.system(size: 15))
                     .fontWeight(.semibold)
                     .padding(.init(top: 13, leading: 15, bottom: 0, trailing: 0))
                  
             }
             else {
                 TextField(placeholder, text: $text)
-                    .font(.system(size: 15))
+//                    .font(.system(size: 15))
                     .fontWeight(.semibold)
                     .padding(.init(top: 13, leading: 15, bottom: 0, trailing: 0))
             }

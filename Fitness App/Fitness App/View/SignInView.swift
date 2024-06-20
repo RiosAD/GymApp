@@ -11,6 +11,7 @@ struct SignInView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -18,18 +19,16 @@ struct SignInView: View {
             backgroundGradient
                 .ignoresSafeArea()
             
-           
-            
-            VStack {
+            VStack(spacing: 12) {
             
               Spacer()
                 
                 //Image
                 Text("App Name")
-                    .font(.custom("Arial-BoldMT", fixedSize: 60))
+                    .font(.custom("Arial-BoldMT", fixedSize: 70))
                     .foregroundStyle(Color(white: 0.9))
                     .opacity(0.7)
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 20)
                 
                 //Form Fields
                 VStack(spacing: 15){
@@ -47,7 +46,7 @@ struct SignInView: View {
                 
               
               Button(action: {
-                  
+                  //Execute
               },
                      label: {
                   Text("Forgot Password?")
@@ -62,9 +61,7 @@ struct SignInView: View {
                 
               Button(action: {
                   //Execute
-                  
               },
-                     
                      label: {
                   Text("Log In")
                       .font(.custom("Arial-BoldMT", fixedSize: 18))
@@ -72,11 +69,10 @@ struct SignInView: View {
                       .padding(.vertical, 10)
                       .foregroundStyle(Color(white: 0.8))
                       .background(Color(.darkGreen))
-                      .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/ ))
-                      .padding(.top, 5)
-                  
-                  
-              })
+                      .clipShape(RoundedRectangle(cornerRadius: 20))
+                  })
+                
+                    .padding(.top, 10)
               
 
                 Spacer()
@@ -85,7 +81,16 @@ struct SignInView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 120)
             
-           
+            .toolbar {
+                ToolbarItem(placement:.topBarLeading){
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .onTapGesture {
+                            dismiss()
+                        }
+                }
+            }
         }
     }
 }
