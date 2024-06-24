@@ -22,9 +22,9 @@ struct StartUp: View {
                    Spacer()
                     
                     //Image
-                    Text("App Name")
+                    Text("Gym App")
                         .font(.custom("Arial-BoldMT", fixedSize: 60))
-                        .foregroundStyle(Color(white: 0.9))
+                        .foregroundStyle(Color(white: 1))
                         .opacity(0.7)
                         .padding(.bottom)
                     
@@ -43,16 +43,16 @@ struct StartUp: View {
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
                                 .padding(.horizontal, 130)
                                 .padding(.vertical, 10)
-                                .foregroundStyle(Color(white: 0.8))
+                                .foregroundStyle(Color(.lightWhite))
                                 .clipShape(RoundedRectangle(cornerRadius: 20 ))
                                 .overlay (RoundedRectangle(cornerRadius: 20)
-                                    .stroke(.darkGreen, lineWidth: 5))
+                                    .stroke(.lightWhite, lineWidth: 5))
                             }
                         
                         
                         //LogIn Button
                         NavigationLink {
-                            CreateAccountView()
+                            NameView()
                                 .navigationBarBackButtonHidden()
                         }
                                label: {
@@ -60,10 +60,10 @@ struct StartUp: View {
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
                                 .padding(.horizontal, 90)
                                 .padding(.vertical, 10)
-                                .foregroundStyle(Color(white: 0.8))
+                                .foregroundStyle(Color(.lightWhite))
                                 .clipShape(RoundedRectangle(cornerRadius: 20 ))
                                 .overlay (RoundedRectangle(cornerRadius: 20)
-                                    .stroke(.darkGreen, lineWidth: 5))
+                                    .stroke(.lightWhite, lineWidth: 5))
                                 
                             
                         }

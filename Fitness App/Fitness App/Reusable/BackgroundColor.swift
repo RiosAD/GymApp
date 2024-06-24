@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-let backgroundGradient = LinearGradient(colors: [Color.blue, Color.purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+let backgroundGradient = LinearGradient(colors: [Color.darkGreen, Color.midGreen], startPoint: .topLeading, endPoint: .bottomTrailing)
+
+let backgroundRadial = RadialGradient(colors: [.lightGreen, .midGreen, .darkGreen], center: .topLeading, startRadius: 30, endRadius: 700)
 
 struct BackgroundColor: View {
     var body: some View {
         ZStack{
-           backgroundGradient
+         backgroundGradient
                 .ignoresSafeArea()
             
             Text("Hello World!")

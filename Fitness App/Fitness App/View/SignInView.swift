@@ -11,7 +11,6 @@ struct SignInView: View {
     
     @State private var email = ""
     @State private var password = ""
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -24,24 +23,25 @@ struct SignInView: View {
               Spacer()
                 
                 //Image
-                Text("App Name")
+                Text("Gym App")
+                    .multilineTextAlignment(.center)
                     .font(.custom("Arial-BoldMT", fixedSize: 70))
                     .foregroundStyle(Color(white: 0.9))
                     .opacity(0.7)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 30)
                 
                 //Form Fields
                 VStack(spacing: 15){
-                    InputView(text: $email, placeholder: "Email", isSecureField: false)
-                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                        .background(Color(.systemGray3))
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(.horizontal, 30)
+                  
+                    TextField("Email", text: $email)
+                        .textInputAutocapitalization(.never)
+                        .fontWeight(.semibold)
+                        .modifier(Input())
                     
-                    InputView(text: $password, placeholder: "Password", isSecureField: true)
-                        .background(Color(.systemGray3))
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(.horizontal, 30)
+                    SecureField("Password", text: $password)
+                        .fontWeight(.semibold)
+                        .modifier(Input())
+                  
             }
                 
               
@@ -52,7 +52,7 @@ struct SignInView: View {
                   Text("Forgot Password?")
                       .font(.footnote)
                       .fontWeight(.semibold)
-                      .foregroundStyle(Color(.darkPurple))
+                      .foregroundStyle(Color(.lightGreen))
                       .padding(.trailing, 35)
               })
               .frame(maxWidth: .infinity, alignment: .trailing)
@@ -67,8 +67,8 @@ struct SignInView: View {
                       .font(.custom("Arial-BoldMT", fixedSize: 18))
                       .padding(.horizontal, 120)
                       .padding(.vertical, 10)
-                      .foregroundStyle(Color(white: 0.8))
-                      .background(Color(.darkGreen))
+                      .foregroundStyle(Color(.lightBlack))
+                      .background(Color(.lightWhite))
                       .clipShape(RoundedRectangle(cornerRadius: 20))
                   })
                 
@@ -81,16 +81,7 @@ struct SignInView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 120)
             
-            .toolbar {
-                ToolbarItem(placement:.topBarLeading){
-                    Image(systemName: "chevron.left")
-                        .imageScale(.large)
-                        .foregroundStyle(.white)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(Toolbar())
         }
     }
 }
