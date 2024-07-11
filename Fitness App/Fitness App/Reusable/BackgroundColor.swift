@@ -14,7 +14,7 @@ let backgroundRadial = RadialGradient(colors: [.lightGreen, .midGreen, .darkGree
 struct BackgroundColor: View {
     var body: some View {
         ZStack{
-         backgroundGradient
+         backgroundRadial
                 .ignoresSafeArea()
             
             Text("Hello World!")

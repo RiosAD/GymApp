@@ -33,18 +33,17 @@ struct SignInView: View {
                 //Form Fields
                 VStack(spacing: 15){
                   
-                    TextField("Email", text: $email)
+                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
                         .textInputAutocapitalization(.never)
                         .fontWeight(.semibold)
                         .modifier(Input())
                     
-                    SecureField("Password", text: $password)
+                    SecureField("", text: $password, prompt: Text("Password").foregroundStyle(Color(.systemGray2)))
                         .fontWeight(.semibold)
                         .modifier(Input())
                   
             }
-                
-              
+             
               Button(action: {
                   //Execute
               },
@@ -53,26 +52,28 @@ struct SignInView: View {
                       .font(.footnote)
                       .fontWeight(.semibold)
                       .foregroundStyle(Color(.lightGreen))
-                      .padding(.trailing, 35)
+                      .padding(.trailing, 5)
               })
               .frame(maxWidth: .infinity, alignment: .trailing)
               .padding(.top, 0.5)
               
                 
-              Button(action: {
-                  //Execute
-              },
-                     label: {
-                  Text("Log In")
-                      .font(.custom("Arial-BoldMT", fixedSize: 18))
-                      .padding(.horizontal, 120)
-                      .padding(.vertical, 10)
-                      .foregroundStyle(Color(.lightBlack))
-                      .background(Color(.lightWhite))
-                      .clipShape(RoundedRectangle(cornerRadius: 20))
-                  })
-                
-                    .padding(.top, 10)
+                VStack {
+                    NavigationLink{
+                        ExercisesTabView()
+                    }
+                         label: {
+                      Text("Log In")
+                          .font(.custom("Arial-BoldMT", fixedSize: 18))
+                          .padding(.horizontal, 120)
+                          .padding(.vertical, 10)
+                          .foregroundStyle(Color(.lightBlack))
+                          .background(Color(.lightWhite))
+                          .clipShape(RoundedRectangle(cornerRadius: 20))
+                      }
+                    
+                     .padding(.top, 10)
+                }
               
 
                 Spacer()

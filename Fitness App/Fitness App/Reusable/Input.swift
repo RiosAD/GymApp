@@ -10,10 +10,13 @@ import SwiftUI
 struct Input: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(10)
-            .background(Color(.systemGray3))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .padding(.horizontal, 35)
+            .font(.system(size: 25))
+            .padding(15)
+            .foregroundStyle(Color(.lightWhite))
+            .background(Color(.darkGreen))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .fontWeight(.semibold)
+            .padding(.bottom, 10)
     }
     
 }

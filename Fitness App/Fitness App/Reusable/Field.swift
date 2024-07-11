@@ -10,12 +10,15 @@ import SwiftUI
 struct Field: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 30))
+            .font(.system(size: 35))
             .padding(10)
             .foregroundStyle(Color(.lightWhite))
+            .background(Color(.darkGreen))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             .fontWeight(.semibold)
-        Divider()
-            .background(Color(.white))
+            .padding(.bottom, 10)
+//        Divider()
+//            .background(Color(.white))
     }
     
 }

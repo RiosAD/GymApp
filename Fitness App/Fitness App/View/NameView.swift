@@ -23,19 +23,19 @@ struct NameView: View {
                 backgroundGradient
                     .ignoresSafeArea()
                 
-                VStack(spacing: 15){
+                VStack(alignment: .center, spacing: 15){
                     
                     Text("Add name and username")
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color(.lightWhite))
-                        .multilineTextAlignment(.center)
+
                         .padding(.bottom, 10)
                     
                     
                     TextField("", text: $firstName, prompt: Text("First Name").foregroundStyle(Color(.systemGray2)))
                         .modifier(Field())
-
+                        
                     
                     TextField("", text: $lastName, prompt: Text("Last Name").foregroundStyle(Color(.systemGray2)))
                         .modifier(Field())
@@ -65,7 +65,7 @@ struct NameView: View {
                     
                 }
                 
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 15)
                 .padding(.top, 50)
                 
               
