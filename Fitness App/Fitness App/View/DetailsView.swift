@@ -36,7 +36,8 @@ struct DetailsView: View {
                             .fontWeight(.semibold)
                             .foregroundStyle(Color(.lightWhite))
                             .padding(.leading, 55)
-                            .padding(.bottom, 50)
+                            .padding(.bottom, 30)
+                            .padding(.top, 20)
                     
                    
                     HStack(alignment: .bottom) {

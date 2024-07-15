@@ -60,7 +60,7 @@ struct SignInView: View {
                 
                 VStack {
                     NavigationLink{
-                        ExercisesTabView()
+                        ExercisesView()
                     }
                          label: {
                       Text("Log In")

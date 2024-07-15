@@ -1,15 +1,14 @@
 //
-//  ExercisesTabView.swift
+//  NutritionView.swift
 //  Fitness App
 //
-//  Created by Angel Rios on 7/11/24.
+//  Created by Angel Rios on 7/15/24.
 //
 
 import SwiftUI
 
-struct ExercisesTabView: View {
+struct NutritionView: View {
     var body: some View {
-        
         NavigationStack{
             
             ZStack {
@@ -17,7 +16,7 @@ struct ExercisesTabView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Exercises Tab")
+                    Text("Nutrition")
                         .font(.system(size: 30))
                         .font(.title)
                         .fontWeight(.semibold)
@@ -25,10 +24,9 @@ struct ExercisesTabView: View {
                 }
             }
         }
-      
     }
 }
 
 #Preview {
-    ExercisesTabView()
+    NutritionView()
 }

@@ -26,7 +26,7 @@ struct LogInDetailsView: View {
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color(.lightWhite))
-                        .padding(.bottom, 50)
+                        .padding(.bottom, 40)
                     
                     TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
                         .textInputAutocapitalization(.never)
@@ -43,7 +43,7 @@ struct LogInDetailsView: View {
                     
                     VStack {
                         NavigationLink {
-                            ExercisesTabView()
+                            TabBar()
                                 .navigationBarBackButtonHidden()
                         }
                     label: {
@@ -60,7 +60,7 @@ struct LogInDetailsView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 15)
-                .padding(.top, 10)
+                .padding(.top, 20)
             }
             
             .modifier(Toolbar())

@@ -25,12 +25,12 @@ struct NameView: View {
                 
                 VStack(alignment: .center, spacing: 15){
                     
-                    Text("Add name and username")
+                    Text("Name and username")
+                        .font(.system(size: 35))
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color(.lightWhite))
-
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 30)
                     
                     
                     TextField("", text: $firstName, prompt: Text("First Name").foregroundStyle(Color(.systemGray2)))
@@ -66,7 +66,7 @@ struct NameView: View {
                 }
                 
                 .padding(.horizontal, 15)
-                .padding(.top, 50)
+                .padding(.top, 20)
                 
               
                 
