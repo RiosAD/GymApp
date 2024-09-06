@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBar: View {
     var body: some View {
         TabView{
+            
             ExercisesView()
                 .tabItem {
                     Image(systemName: "dumbbell")
@@ -17,7 +18,7 @@ struct TabBar: View {
             
             NutritionView()
                 .tabItem {
-                    Image(systemName: "carrot")
+                    Image(systemName: "fork.knife.circle")
                 }
             
             HistoryView()

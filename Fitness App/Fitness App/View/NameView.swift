@@ -25,8 +25,8 @@ struct NameView: View {
                 
                 VStack(alignment: .center, spacing: 15){
                     
-                    Text("Name and username")
-                        .font(.system(size: 35))
+                    Text("Add Name and Number")
+                        .font(.system(size: 30))
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color(.lightWhite))
@@ -52,7 +52,7 @@ struct NameView: View {
                                label: {
                             Text("Next")
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                .padding(.horizontal, 120)
+                                .padding(.horizontal, 140)
                                 .padding(.vertical, 10)
                                 .foregroundStyle(Color(.lightBlack))
                                 .background(Color(.lightWhite))

@@ -49,7 +49,7 @@ struct LogInDetailsView: View {
                     label: {
                         Text("Create Account")
                             .font(.custom("Arial-BoldMT", fixedSize: 18))
-                            .padding(.horizontal, 90)
+                            .padding(.horizontal, 100)
                             .padding(.vertical, 10)
                             .foregroundStyle(Color(.lightBlack))
                             .background(Color(.lightWhite))

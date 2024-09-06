@@ -11,10 +11,12 @@ let backgroundGradient = LinearGradient(colors: [Color.darkGreen, Color.midGreen
 
 let backgroundRadial = RadialGradient(colors: [.lightGreen, .midGreen, .darkGreen], center: .topLeading, startRadius: 30, endRadius: 700)
 
+let backgroundAlt = RadialGradient(colors: [.midBlue, .darkBlue, .black], center: .bottomTrailing, startRadius: 5, endRadius: 1000)
+
 struct BackgroundColor: View {
     var body: some View {
         ZStack{
-         backgroundRadial
+         backgroundAlt
                 .ignoresSafeArea()
             
             Text("Hello World!")

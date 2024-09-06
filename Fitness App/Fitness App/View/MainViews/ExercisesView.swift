@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct ExercisesView: View {
+    @State private var category: [ExercisesCategory] = [
+        .init(id: ExercisesCategory.Cat.legs),
+        .init(id: ExercisesCategory.Cat.arms),
+        .init(id: ExercisesCategory.Cat.back),
+        .init(id: ExercisesCategory.Cat.chest)
+    ]
+   
+    
     var body: some View {
         
         NavigationStack{
@@ -16,12 +24,24 @@ struct ExercisesView: View {
                 backgroundGradient
                     .ignoresSafeArea()
                 
-                VStack {
-                    Text("Exercises")
-                        .font(.system(size: 30))
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color(.lightWhite))
+                VStack() {
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 0){
+                                ForEach(category) { Cat in
+                                    Text(Cat.id.rawValue)
+                                        .containerRelativeFrame([.horizontal, .vertical])
+                                }
+                            }
+                            .scrollTargetLayout()
+                        }
+                        .scrollIndicators(.hidden)
+                        .scrollTargetBehavior(.paging)
+                   
+                    
+                    
+                    
+                    
+                    
                 }
             }
         }
