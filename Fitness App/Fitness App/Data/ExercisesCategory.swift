@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ExercisesCategory: Identifiable {
     private (set) var id: Cat
-    var size: CGSize = .zero
-    var minX: CGFloat = .zero
     
     enum Cat: String, CaseIterable {
         case legs = "Legs"

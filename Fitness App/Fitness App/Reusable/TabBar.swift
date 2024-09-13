@@ -14,28 +14,35 @@ struct TabBar: View {
             ExercisesView()
                 .tabItem {
                     Image(systemName: "dumbbell")
+                    Text("Workouts")
                 }
+                .tag(0)
             
             NutritionView()
                 .tabItem {
                     Image(systemName: "fork.knife.circle")
+                    Text("Nutrition")
                 }
+                .tag(1)
             
             HistoryView()
                 .tabItem {
                     Image(systemName: "clock.arrow.circlepath")
+                    Text("History")
                 }
+                .tag(2)
             
             ProfileView()
                 .tabItem {
                     Image(systemName: "person.circle")
+                    Text("Profile")
                 }
+                .tag(3)
         }
         .onAppear() {
             UITabBar.appearance().backgroundColor = .darkGreen
             UITabBar.appearance().unselectedItemTintColor = .lightGreen
         }
-        .tint(.lightWhite)
     }
 }
 

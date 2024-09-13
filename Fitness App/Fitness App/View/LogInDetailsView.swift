@@ -51,7 +51,7 @@ struct LogInDetailsView: View {
                             .font(.custom("Arial-BoldMT", fixedSize: 18))
                             .padding(.horizontal, 100)
                             .padding(.vertical, 10)
-                            .foregroundStyle(Color(.lightBlack))
+                            .foregroundStyle(Color(.midGreen))
                             .background(Color(.lightWhite))
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                         }

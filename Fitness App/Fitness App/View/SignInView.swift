@@ -60,14 +60,15 @@ struct SignInView: View {
                 
                 VStack {
                     NavigationLink{
-                        ExercisesView()
+                        TabBar()
+                            .navigationBarBackButtonHidden()
                     }
                          label: {
                       Text("Log In")
                           .font(.custom("Arial-BoldMT", fixedSize: 18))
                           .padding(.horizontal, 120)
                           .padding(.vertical, 10)
-                          .foregroundStyle(Color(.lightBlack))
+                          .foregroundStyle(Color(.midGreen))
                           .background(Color(.lightWhite))
                           .clipShape(RoundedRectangle(cornerRadius: 20))
                       }

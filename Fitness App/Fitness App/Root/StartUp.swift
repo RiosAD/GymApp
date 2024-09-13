@@ -43,7 +43,7 @@ struct StartUp: View {
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
                                 .padding(.horizontal, 130)
                                 .padding(.vertical, 10)
-                                .foregroundStyle(Color(.lightBlack))
+                                .foregroundStyle(Color(.midGreen))
                                 .background(Color(.lightWhite))
                                 .clipShape(RoundedRectangle(cornerRadius: 20 ))
                                 .overlay (RoundedRectangle(cornerRadius: 20)

@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-struct Field: ViewModifier {
+struct DetailsField: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 35))
+            .keyboardType(.numberPad)
+            .multilineTextAlignment(.center)
+            .font(.system(size: 45))
             .padding(10)
             .foregroundStyle(Color(.lightWhite))
-            .background(Color(.darkGreen))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
             .fontWeight(.semibold)
-            .padding(.bottom, 10)
-//        Divider()
-//            .background(Color(.white))
+            .background(Color(.darkGreen))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
     
 }

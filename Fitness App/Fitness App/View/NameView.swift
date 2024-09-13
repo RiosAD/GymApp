@@ -25,7 +25,7 @@ struct NameView: View {
                 
                 VStack(alignment: .center, spacing: 15){
                     
-                    Text("Add Name and Number")
+                    Text("Add Name and Username")
                         .font(.system(size: 30))
                         .font(.title)
                         .fontWeight(.semibold)
@@ -34,15 +34,15 @@ struct NameView: View {
                     
                     
                     TextField("", text: $firstName, prompt: Text("First Name").foregroundStyle(Color(.systemGray2)))
-                        .modifier(Field())
+                        .modifier(Input())
                         
                     
                     TextField("", text: $lastName, prompt: Text("Last Name").foregroundStyle(Color(.systemGray2)))
-                        .modifier(Field())
+                        .modifier(Input())
                        
                     
                     TextField("", text: $username, prompt: Text("Username").foregroundStyle(Color(.systemGray2)))
-                        .modifier(Field())
+                        .modifier(Input())
                     
                     VStack {
                         NavigationLink {
@@ -54,7 +54,7 @@ struct NameView: View {
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
                                 .padding(.horizontal, 140)
                                 .padding(.vertical, 10)
-                                .foregroundStyle(Color(.lightBlack))
+                                .foregroundStyle(Color(.midGreen))
                                 .background(Color(.lightWhite))
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
