@@ -29,7 +29,7 @@ struct Create_New_Exercise_View: View {
                                 .background(Color(.textGreen).opacity(0.1))
                             
                             HStack {
-                                TextField("", text: $sets, prompt: Text("Sets").foregroundStyle(Color(.systemGray2)))
+                                TextField("", text: $sets, prompt: Text("Sets").foregroundStyle(Color(.systemGray)))
                                     .keyboardType(.numberPad)
                                     .font(.title)
                                     .fontWeight(.semibold)
@@ -40,8 +40,8 @@ struct Create_New_Exercise_View: View {
                                 Divider()
                                     .frame(width: 1)
                                     .background(Color(.textGreen).opacity(0.1))
-                                
-                                TextField("", text: $rep, prompt: Text("Reps").foregroundStyle(Color(.systemGray2)))
+                                 
+                                TextField("", text: $rep, prompt: Text("Reps").foregroundStyle(Color(.systemGray)))
                                     .keyboardType(.numberPad)
                                     .font(.title)
                                     .fontWeight(.semibold)
@@ -52,7 +52,7 @@ struct Create_New_Exercise_View: View {
                                 .frame(height: 1)
                                 .background(Color(.textGreen).opacity(0.1))
                             
-                            TextField("", text: $exceWeight, prompt: Text("Exercise Weight").foregroundStyle(Color(.systemGray2)))
+                            TextField("", text: $exceWeight, prompt: Text("Exercise Weight").foregroundStyle(Color(.systemGray)))
                                 .keyboardType(.numberPad)
                                 .font(.title)
                                 .fontWeight(.semibold)
@@ -61,7 +61,7 @@ struct Create_New_Exercise_View: View {
                                 .padding(.bottom, 10)
                         }
                         
-                    },label: { TextField("", text: $exerciseName, prompt: Text("Exercise Name").foregroundStyle(Color(.systemGray2)))
+                    },label: { TextField("", text: $exerciseName, prompt: Text("Exercise Name").foregroundStyle(Color(.systemGray)))
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color(.lightWhite))

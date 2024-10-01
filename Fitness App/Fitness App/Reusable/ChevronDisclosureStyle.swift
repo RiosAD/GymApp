@@ -33,7 +33,7 @@ struct ChevronDisclosureStyle: DisclosureGroupStyle {
             }
             if configuration.isExpanded {
                 configuration.content
-                    .transition(.move(edge: .bottom).combined(with: .scale(0.1)))
+                    .transition(.move(edge: .bottom).combined(with: .blurReplace).combined(with: .scale(0.5)))
             }
         }
        
