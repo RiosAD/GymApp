@@ -14,7 +14,6 @@ struct DetailsView: View {
     @State private var bodyWeight = ""
     @State private var DOB = Date()
    
-    
     let maxFt = 1
     let maxIn = 2
     let maxLbs = 3
@@ -45,7 +44,8 @@ struct DetailsView: View {
                                 TextField("", text: $feet, prompt: Text("Ft").foregroundStyle(Color(.systemGray2)))
                                     .onChange(of: feet) { _, newValue in
                                                 feet = String(newValue.prefix(maxFt))}
-                                    .modifier(DetailsField())                              .frame(width: 70, height: 10, alignment: .center)
+                                    .modifier(DetailsField())                              
+                                    .frame(width: 70, height: 10, alignment: .center)
 
                            
                                 Text("'")

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ExercisesView: View {
     @State private var category: [ExercisesCategory] = [
@@ -16,6 +17,7 @@ struct ExercisesView: View {
     ]
     @State private var activeTab: ExercisesCategory.Cat = .legs
     @State private var viewState: ExercisesCategory.Cat?
+    @Query private var data: [AppData]
     
     var body: some View {
         NavigationStack{

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct WorkoutButtonView: View {
+    
+    @State private var showCreateSheet = false
+    @State private var showEditSheet = false
+    
     var body: some View {
         VStack {
-            
-            
             ScrollView(.vertical) {
                 HStack {
                     Button(action: {
@@ -21,6 +23,7 @@ struct WorkoutButtonView: View {
                         Text("Add Exercise")
                     })
                     .font(.system(size: 30))
+                    
                     
                     Spacer()
                 }
