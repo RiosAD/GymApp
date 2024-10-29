@@ -11,10 +11,10 @@ struct ExercisesCategory: Identifiable {
     private (set) var id: Cat
     
     enum Cat: String, CaseIterable {
-        case legs = "Legs"
         case arms = "Arms"
-        case chest = "Chest"
         case back = "Back"
+        case chest = "Chest"
+        case legs = "Legs"
     }
 }
 

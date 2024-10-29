@@ -9,15 +9,15 @@ import SwiftUI
 
 struct WorkoutButtonView: View {
     
+
     @State private var showCreateSheet = false
-    @State private var showEditSheet = false
     
     var body: some View {
         VStack {
             ScrollView(.vertical) {
                 HStack {
                     Button(action: {
-                        
+                        showCreateSheet.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                         Text("Add Exercise")
@@ -29,23 +29,28 @@ struct WorkoutButtonView: View {
                 }
                 .padding(.leading, 15)
                 .scrollTargetLayout()
+                .sheet(isPresented: $showCreateSheet, content: {
+                    Create_New_Exercise_View()
+                        .presentationDetents([.height(670)])
+                })
+                
             }
             
             
-            Spacer()
+//            Spacer()
         }
     }
 }
 
 #Preview {
     
-//    ZStack {
-//        backgroundGradient
-//            .ignoresSafeArea()
-//        
-//        WorkoutFormView()
-//        
-//    }
+    ZStack {
+        backgroundGradient
+            .ignoresSafeArea()
+        
+        WorkoutButtonView()
+        
+    }
     
-    ExercisesView()
+//    ExercisesView()
 }

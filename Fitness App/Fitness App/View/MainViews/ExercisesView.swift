@@ -10,14 +10,17 @@ import SwiftData
 
 struct ExercisesView: View {
     @State private var category: [ExercisesCategory] = [
-        .init(id: ExercisesCategory.Cat.legs),
         .init(id: ExercisesCategory.Cat.arms),
         .init(id: ExercisesCategory.Cat.back),
-        .init(id: ExercisesCategory.Cat.chest)
+        .init(id: ExercisesCategory.Cat.chest),
+        .init(id: ExercisesCategory.Cat.legs)
     ]
-    @State private var activeTab: ExercisesCategory.Cat = .legs
+    @State private var activeTab: ExercisesCategory.Cat = .arms
     @State private var viewState: ExercisesCategory.Cat?
-    @Query private var data: [AppData]
+    
+    @State private var showCreateSheet = false
+    @Query private var exercise: [Exercises]
+    @Environment (\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack{
@@ -26,66 +29,96 @@ struct ExercisesView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
+                    Spacer(minLength: 10)
                     
-//                    CATEGORY TAB HEADER
+                    //CATEGORY TAB HEADER
                     HStack(alignment: .center, spacing: 10){
-                            ForEach(category) { Cat in
-                                Button(action: {
-                                    withAnimation(.snappy) {
-                                        activeTab = Cat.id
-                                        viewState = Cat.id
-                                    }
-                                    
-                                }) {
-                                    Text(Cat.id.rawValue)
-                                        .font(.system(size: 35))
-                                        .font(.largeTitle)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(activeTab == Cat.id ? Color.textGreen : .lightWhite)
+                        ForEach(category) { Cat in
+                            Button(action: {
+                                withAnimation(.snappy) {
+                                    activeTab = Cat.id
+                                    viewState = Cat.id
                                 }
-                                .padding(.bottom, 15)
+                                
+                            }) {
+                                Text(Cat.id.rawValue)
+                                //Change value to 40; 35 is for preview only
+                                    .font(.system(size: 35)) // <<--
+                                    .font(.largeTitle)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(activeTab == Cat.id ? Color.textGreen : .lightWhite)
                             }
+                            .padding(.bottom, 10)
                         }
+                    }
+                    .overlay(alignment: .bottom) {
+                        Rectangle()
+                            .fill(.textGreen.opacity(0.1))
+                            .frame(width: 390,height: 5)
+                        
+                    }
                     
-                    
-                    Divider()
-                        .frame(height: 5)
-                        .background(Color(.textGreen).opacity(0.1))
-                    
-                    Spacer()
+                    Spacer(minLength: 1)
                     
                     //CONTENT PAGES
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 0){
-                                ForEach(category) { Cat in
-                                   WorkoutButtonView()
+                    ScrollView(.vertical) {
+                        ScrollView(.horizontal) {
+                            ForEach(exercise) { Exercises in
+                                VStack(spacing: 0) {
+                                    if  Exercises.catSel == activeTab.rawValue {
+                                            ExerciseGroupView(exercise: Exercises)
+                                    }
                                 }
-                                .containerRelativeFrame([.horizontal])
-                                .padding(.top)
                             }
+                            .containerRelativeFrame([.horizontal])
+                            .padding(.trailing, 10)
                             .scrollTargetLayout()
+                           
+                            Spacer()
                         }
-                        .scrollPosition(id: $viewState)
                         .scrollIndicators(.hidden)
+                        .scrollPosition(id: $viewState)
                         .scrollTargetBehavior(.paging)
                         .onChange(of: viewState) { oldValue, newValue in
                             if let newValue {
-                                withAnimation(.snappy) {
+                                withAnimation(.snappy(duration: 0.3)) {
                                     activeTab = newValue
                                 }
                             }
                         }
                         
+                    }
                     
-                   Spacer()
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            showCreateSheet.toggle()
+                        }, label: {
+                            Image(systemName: "plus.circle.fill")
+                            
+                        })
+                        .font(.system(size: 50))
+                        .foregroundStyle(Color.lightWhite)
+                        
+                    }
+                    .padding(.trailing, 12)
+                    .sheet(isPresented: $showCreateSheet, content: {
+                        Create_New_Exercise_View()
+                            .presentationDetents([.height(670)])
+                    })
+                    .padding(.bottom, 15)
                 }
                 
             }
         }
-      
+        
     }
 }
 
 #Preview {
-    ExercisesView()
+    let preview = PreviewSampleData()
+    preview.addSample(Exercises.previewData)
+    return ExercisesView()
+        .modelContainer(preview.container)
 }

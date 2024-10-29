@@ -10,7 +10,9 @@ import SwiftData
 
 struct ExerciseGroupView: View {
     
-//    @Bindable var data: AppData
+    @Bindable var exercise: Exercises
+    @Environment (\.modelContext) private var modelContext
+    @State private var showEditSheet = false
     
     var body: some View {
         DisclosureGroup(
@@ -21,7 +23,7 @@ struct ExerciseGroupView: View {
                         .background(Color(.textGreen).opacity(0.1))
                     
                     HStack() {
-                        Text("sets")
+                        Text(exercise.sets)
                             .font(.largeTitle)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color.lightWhite)
@@ -33,7 +35,7 @@ struct ExerciseGroupView: View {
                             .foregroundStyle(Color.lightWhite)
                             .padding(.horizontal, 70)
                         
-                        Text("rep")
+                        Text(exercise.rep)
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color.lightWhite)
@@ -43,12 +45,12 @@ struct ExerciseGroupView: View {
                     .padding(.vertical, 5)
                     
                     HStack {
-                        Text("exceWeight")
+                        Text(exercise.exceWeight)
                             .font(.largeTitle)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color.lightWhite)
                             .frame(width: 120, height: 50)
-                            .padding(.leading, 20)
+                            .padding(.leading, 10)
                         
                         Text("lbs")
                             .foregroundStyle(Color(.lightWhite))
@@ -57,13 +59,49 @@ struct ExerciseGroupView: View {
                             .padding(.leading, 25)
                         
                         Spacer()
+                        
+                        VStack {
+                            Menu {
+                                Button {
+                                    showEditSheet.toggle()
+                                    
+                                } label: {
+                                    
+                                    Label("Edit", systemImage: "square.and.pencil")
+                                }
+                                
+                                Button(role: .destructive) {
+                                    withAnimation {
+                                        modelContext.delete(exercise)
+                                    }
+                                    
+                                } label: {
+                                    
+                                    Label("Delete", systemImage: "trash")
+                                }
+                                
+                             } label: {
+                                Image(systemName: "ellipsis.circle.fill")
+                                    .foregroundStyle(Color(.lightWhite))
+                                    .font(.system(size: 18))
+                                    .padding(.trailing, 38)
+                            }
+                             .sheet(isPresented: $showEditSheet, content: {
+                                 EditGroupView(exercise: exercise)
+                                     .presentationDetents([.height(670)])
+                         })
+
+                         }
+                        .padding(.top, 10)
+                       
                     }
                     .padding(.bottom)
                 }
                 
             },
-            label: { Text("exerciseName")
+            label: { Text(exercise.exerciseName)
                         .font(.largeTitle)
+                        .lineLimit(1)
                         .padding(12)
                         .foregroundStyle(Color(.lightWhite))
                         .fontWeight(.semibold)
@@ -76,14 +114,5 @@ struct ExerciseGroupView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(6)
     }
-}
-
-#Preview {
-    ZStack {
-        backgroundGradient
-            .ignoresSafeArea()
         
-        ExerciseGroupView()
-    }
-//    ExercisesView()
 }

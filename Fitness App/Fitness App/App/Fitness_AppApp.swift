@@ -11,10 +11,9 @@ import SwiftData
 @main
 struct Fitness_AppApp: App {
     var body: some Scene {
-        
         WindowGroup {
             StartUp()
         }
-        .modelContainer(for: AppData.self)
+        .modelContainer(for: Exercises.self)
     }
 }

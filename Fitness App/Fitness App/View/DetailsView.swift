@@ -88,7 +88,6 @@ struct DetailsView: View {
                     .padding(.bottom, 40)
                     
                     DatePicker("Date of Birth", selection: $DOB, in: ...Date(), displayedComponents: .date)
-                       
                         .datePickerStyle(.compact)
                         .fontWeight(.semibold)
                         .font(.system(size: 35))
