@@ -112,7 +112,7 @@ struct ExerciseGroupView: View {
         .background(Color(.textGreen).opacity(0.1))
         .disclosureGroupStyle(ChevronDisclosureStyle())
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding(6)
+        .padding(2)
     }
         
 }

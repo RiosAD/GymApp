@@ -57,21 +57,24 @@ struct ExercisesView: View {
                             .frame(width: 390,height: 5)
                         
                     }
-                    
-                    Spacer(minLength: 1)
+                    .padding(.bottom, 10)
                     
                     //CONTENT PAGES
                     ScrollView(.vertical) {
                         ScrollView(.horizontal) {
-                            ForEach(exercise) { Exercises in
-                                VStack(spacing: 0) {
-                                    if  Exercises.catSel == activeTab.rawValue {
-                                            ExerciseGroupView(exercise: Exercises)
+                            HStack(spacing: 0) {
+                                ForEach(category) { Cat in
+                                    VStack {
+                                        ForEach(exercise) { Exercises in
+                                            if  Exercises.catSel == activeTab.rawValue {
+                                                ExerciseGroupView(exercise: Exercises)
+                                                    .padding(.horizontal, 4)
+                                            }
+                                        }
                                     }
                                 }
+                                .containerRelativeFrame(.horizontal)
                             }
-                            .containerRelativeFrame([.horizontal])
-                            .padding(.trailing, 10)
                             .scrollTargetLayout()
                            
                             Spacer()
