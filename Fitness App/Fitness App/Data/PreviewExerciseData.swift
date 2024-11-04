@@ -18,7 +18,7 @@ extension Exercises {
             
             Exercises(exerciseName: "Leg Press", rep: "10", sets: "3", exceWeight: "320", date: Date(), catSel: ExercisesCategory.Cat.legs.rawValue),
             
-            Exercises(exerciseName: "Cable Row", rep: "10", sets: "3", exceWeight: "35", date: Date(), catSel: ExercisesCategory.Cat.back.rawValue),
+//            Exercises(exerciseName: "Cable Row", rep: "10", sets: "3", exceWeight: "35", date: Date(), catSel: ExercisesCategory.Cat.back.rawValue),
             
             Exercises(exerciseName: "Incline Dumbbell Bench", rep: "10", sets: "3", exceWeight: "60", date: Date(), catSel: ExercisesCategory.Cat.chest.rawValue),
             
@@ -26,7 +26,7 @@ extension Exercises {
             
             Exercises(exerciseName: "Squat", rep: "10", sets: "3", exceWeight: "320", date: Date(), catSel: ExercisesCategory.Cat.legs.rawValue),
             
-            Exercises(exerciseName: "Cable Back Workout", rep: "10", sets: "3", exceWeight: "100", date: Date(), catSel: ExercisesCategory.Cat.back.rawValue),
+//            Exercises(exerciseName: "Cable Back Workout", rep: "10", sets: "3", exceWeight: "100", date: Date(), catSel: ExercisesCategory.Cat.back.rawValue),
             
             Exercises(exerciseName: "High to Low Cable Fly", rep: "10", sets: "3", exceWeight: "60", date: Date(), catSel: ExercisesCategory.Cat.chest.rawValue),
             
