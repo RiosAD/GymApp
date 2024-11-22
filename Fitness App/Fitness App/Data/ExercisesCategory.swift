@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExercisesCategory: Identifiable {
-    private (set) var id: Cat
+    private(set) var id: Cat
     
     enum Cat: String, CaseIterable {
         case arms = "Arms"
