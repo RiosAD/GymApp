@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Create_New_Exercise_View: View {
-    @Environment (\.dismiss) private var dismiss
-    @Environment (\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     @State private var category: [ExercisesCategory] = [
         .init(id: ExercisesCategory.Cat.arms),
         .init(id: ExercisesCategory.Cat.back),

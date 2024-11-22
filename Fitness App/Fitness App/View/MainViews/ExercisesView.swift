@@ -20,7 +20,7 @@ struct ExercisesView: View {
     
     @State private var showCreateSheet = false
     @Query(sort: \Exercises.exerciseName) private var exercise: [Exercises]
-    @Environment (\.modelContext) private var modelContext
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack{
@@ -65,7 +65,8 @@ struct ExercisesView: View {
                             ForEach(category) { Cat in
                                 ScrollView(.vertical) {
                                     VStack {
-                                        ForEach(exercise) { Exercises in                             if Exercises.catSel == Cat.id.rawValue {
+                                        ForEach(exercise) { Exercises in                            
+                                            if Exercises.catSel == Cat.id.rawValue {
                                                 ExerciseGroupView(exercise: Exercises)
                                                     .padding(.horizontal, 4)
                                                     .scrollTransition { content, phase in

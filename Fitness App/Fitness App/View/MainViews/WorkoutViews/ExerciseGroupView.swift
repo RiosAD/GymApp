@@ -11,7 +11,7 @@ import SwiftData
 struct ExerciseGroupView: View {
     
     @Bindable var exercise: Exercises
-    @Environment (\.modelContext) private var modelContext
+    @Environment(\.modelContext) private var modelContext
     @State private var showEditSheet = false
     
     var body: some View {
