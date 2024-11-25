@@ -31,15 +31,15 @@ struct SignInView: View {
                     .padding(.bottom, 30)
                 
                 //Form Fields
-                VStack(spacing: 15){
+                VStack(spacing: 10){
                   
                     TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
                         .textInputAutocapitalization(.never)
                         .fontWeight(.semibold)
                         .modifier(Input())
+                        .padding(.bottom, 5)
                     
                     SecureField("", text: $password, prompt: Text("Password").foregroundStyle(Color(.systemGray2)))
-                        .fontWeight(.semibold)
                         .modifier(Input())
                   
             }
@@ -55,8 +55,6 @@ struct SignInView: View {
                       .padding(.trailing, 5)
               })
               .frame(maxWidth: .infinity, alignment: .trailing)
-              .padding(.top, 0.5)
-              
                 
                 VStack {
                     NavigationLink{
@@ -73,7 +71,7 @@ struct SignInView: View {
                           .clipShape(RoundedRectangle(cornerRadius: 20))
                       }
                     
-                     .padding(.top, 10)
+//                     .padding(.top, 10)
                 }
               
 

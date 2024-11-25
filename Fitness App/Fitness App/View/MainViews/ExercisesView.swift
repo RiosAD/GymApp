@@ -83,7 +83,7 @@ struct ExercisesView: View {
                             .scrollTransition { content, phase in
                                 content
                                     .opacity(phase.isIdentity ? 1 : 0)
-                                    .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                    .scaleEffect(phase.isIdentity ? 1 : 0.97)
                                     .blur(radius: phase.isIdentity ? 0 : 3)
                                 }
                             }

@@ -77,11 +77,10 @@ struct Create_New_Exercise_View: View {
                         Text("Category")
                         .foregroundStyle(Color(.systemGray))
                     
-                        Picker ("", selection: $pickerSelection) {
+                    Picker ("", selection: $pickerSelection) {
                             ForEach(category) { Cat in
                                 Text(Cat.id.rawValue)
                                     .foregroundStyle(Color(.lightWhite))
-                                    .tag(Cat.id)
                             }
                          }
                         .pickerStyle(.palette)
