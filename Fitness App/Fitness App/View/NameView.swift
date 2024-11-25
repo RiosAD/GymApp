@@ -11,7 +11,7 @@ struct NameView: View {
     
     @State private var firstName = ""
     @State private var lastName = "" 
-    @State private var username = ""
+    @State private var email = ""
     
     
     var body: some View {
@@ -25,7 +25,7 @@ struct NameView: View {
                 
                 VStack(alignment: .center, spacing: 15){
                     
-                    Text("Add Name and Username")
+                    Text("Add Name and Email")
                         .font(.system(size: 30))
                         .font(.title)
                         .fontWeight(.semibold)
@@ -41,7 +41,9 @@ struct NameView: View {
                         .modifier(Input())
                        
                     
-                    TextField("", text: $username, prompt: Text("Username").foregroundStyle(Color(.systemGray2)))
+                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
+                        .textInputAutocapitalization(.never)
+                        .fontWeight(.semibold)
                         .modifier(Input())
                     
                     VStack {

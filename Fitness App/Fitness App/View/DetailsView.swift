@@ -76,7 +76,7 @@ struct DetailsView: View {
                                     .onChange(of: bodyWeight) { _, newValue in
                                         bodyWeight = String(newValue.prefix(maxLbs))}
                                     .modifier(DetailsField()) 
-                                    .frame(width: 200, height: 10, alignment: .center)
+                                    .frame(width: 190, height: 10, alignment: .center)
                         
                         Text("lbs")
                            .foregroundStyle(Color(.systemGray2))
@@ -89,6 +89,8 @@ struct DetailsView: View {
                     
                     DatePicker("Date of Birth", selection: $DOB, in: ...Date(), displayedComponents: .date)
                         .datePickerStyle(.compact)
+                        .colorScheme(.dark)
+                        .tint(.midGreen)
                         .fontWeight(.semibold)
                         .font(.system(size: 35))
                         .foregroundStyle(Color(white: 0.7))

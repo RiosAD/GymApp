@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LogInDetailsView: View {
     
-    @State private var email = ""
     @State private var password = ""
     @State private var confirmPwd = ""
     
@@ -21,17 +20,12 @@ struct LogInDetailsView: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 10) {
-                    Text("Create Log In")
+                    Text("Create Password")
                         .font(.system(size: 40))
                         .font(.title)
                         .fontWeight(.semibold)
                         .foregroundStyle(Color(.lightWhite))
                         .padding(.bottom, 40)
-                    
-                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
-                        .textInputAutocapitalization(.never)
-                        .fontWeight(.semibold)
-                        .modifier(Input())
                     
                     SecureField("", text: $password, prompt: Text("Create Password").foregroundStyle(Color(.systemGray2)))
                         .fontWeight(.semibold)

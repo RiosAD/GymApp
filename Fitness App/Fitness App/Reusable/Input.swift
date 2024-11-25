@@ -16,7 +16,6 @@ struct Input: ViewModifier {
             .background(Color(.darkGreen))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .fontWeight(.semibold)
-            .padding(.bottom, 10)
     }
     
 }
