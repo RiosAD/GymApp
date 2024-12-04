@@ -15,6 +15,7 @@
 		4920B9052CF111E6000ABA1A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4920B9042CF111E6000ABA1A /* FirebaseAuth */; };
 		4920B9072CF111E6000ABA1A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4920B9062CF111E6000ABA1A /* FirebaseFirestore */; };
 		4920B9092CF111E6000ABA1A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4920B9082CF111E6000ABA1A /* FirebaseStorage */; };
+		493CF90D2D00EF83003654A2 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CF90C2D00EF6E003654A2 /* AuthModel.swift */; };
 		49726EFC2CD02A27004814B3 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726EFB2CD02A27004814B3 /* PreviewSampleData.swift */; };
 		49726EFE2CD02D27004814B3 /* PreviewExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49726EFD2CD02D27004814B3 /* PreviewExerciseData.swift */; };
 		49991E4A2C94A21700DAD4F8 /* WorkoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49991E492C94A21700DAD4F8 /* WorkoutForm.swift */; };
@@ -47,6 +48,7 @@
 		491B5E142BAF04DE0078F00B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491B5E172BAF04DE0078F00B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4920B9012CF1108F000ABA1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		493CF90C2D00EF6E003654A2 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		49726EFB2CD02A27004814B3 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		49726EFD2CD02D27004814B3 /* PreviewExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExerciseData.swift; sourceTree = "<group>"; };
 		49991E492C94A21700DAD4F8 /* WorkoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutForm.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		49B9DE8F2C5171A100B4B43D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				493CF90C2D00EF6E003654A2 /* AuthModel.swift */,
 				49B9DE902C5171C800B4B43D /* ExercisesCategory.swift */,
 				49BBF15B2C88F3BC00AAAE4D /* User.swift */,
 				49C399D32CA5ED690034B47A /* ExerciseData.swift */,
@@ -270,6 +273,7 @@
 				49AA39E82C29F437005CE713 /* Toolbar.swift in Sources */,
 				49AF5A9B2C12545300ED6417 /* SignInView.swift in Sources */,
 				49D71B602C45AB7500883CCC /* TabBar.swift in Sources */,
+				493CF90D2D00EF83003654A2 /* AuthModel.swift in Sources */,
 				49C4D2492C24BC7D0046F1AC /* DetailsView.swift in Sources */,
 				49AA39E62C29F2D5005CE713 /* DetailsField.swift in Sources */,
 				49D388642BF6FBAE009B0858 /* BackgroundColor.swift in Sources */,

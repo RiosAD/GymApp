@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
     var body: some View {
         NavigationStack{
             
@@ -17,24 +18,16 @@ struct ProfileView: View {
                 
                 VStack(alignment: .center, spacing: 5) {
                         Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 80))
+                            .font(.system(size: 90))
                             .foregroundStyle(Color(.lightWhite).opacity(0.85))
                             .padding(.vertical)
                         
                     HStack(alignment: .center) {
                         
-                        Text("Test")
+                        Text(User.testUser.fullname)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundStyle(Color(.lightWhite))
-                            .padding(.leading, 15)
-                        
-                        
-                        Text("User")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color(.lightWhite))
-                            .padding(.trailing, 10)
                     }
                     
                     HStack {
@@ -50,10 +43,10 @@ struct ProfileView: View {
                                 .overlay(alignment: .bottom) {
                                     Rectangle()
                                         .fill(.lightWhite.opacity(0.5))
-                                        .frame(width: 55, height: 2)
+                                        .frame(width: 58, height: 2)
                                 }
                             
-                            Text("26")
+                            Text("\(User.testUser.age)")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
@@ -72,7 +65,7 @@ struct ProfileView: View {
                                         .frame(width: 95, height: 2)
                                 }
                             
-                            Text("195")
+                            Text("\(User.testUser.weight)")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
@@ -89,10 +82,10 @@ struct ProfileView: View {
                                 .overlay(alignment: .bottom) {
                                     Rectangle()
                                         .fill(.lightWhite.opacity(0.5))
-                                        .frame(width: 95, height: 2)
+                                        .frame(width: 92, height: 2)
                                 }
                             
-                            Text("5'8")
+                            Text("\(User.testUser.height)")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
