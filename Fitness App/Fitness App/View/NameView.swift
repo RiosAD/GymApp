@@ -11,8 +11,8 @@ struct NameView: View {
     
     @State private var firstName = ""
     @State private var lastName = "" 
-    @State private var email = ""
-    
+    @State private var DOB = Date()
+    @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
         
@@ -25,7 +25,7 @@ struct NameView: View {
                 
                 VStack(alignment: .center, spacing: 15){
                     
-                    Text("Add Name and Email")
+                    Text("Add Name and Birthdate")
                         .font(.system(size: 30))
                         .font(.title)
                         .fontWeight(.semibold)
@@ -41,15 +41,20 @@ struct NameView: View {
                         .modifier(Input())
                        
                     
-                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
-                        .textInputAutocapitalization(.never)
+                    DatePicker("Date of Birth", selection: $DOB, in: ...Date(), displayedComponents: .date)
+                        .datePickerStyle(.compact)
+                        .colorScheme(.dark)
+                        .tint(.midGreen)
                         .fontWeight(.semibold)
-                        .modifier(Input())
+                        .font(.system(size: 35))
+                        .foregroundStyle(Color(white: 0.7))
+                        .padding(.horizontal, 3)
                     
                     VStack {
-                        NavigationLink {
-                            DetailsView()
-                                .navigationBarBackButtonHidden()
+                        Button {
+                            Task {
+                                try await viewModel.createUser(firstName: firstName, lastName: lastName, birthDate: DOB)
+                            }
                         }
                                label: {
                             Text("Next")

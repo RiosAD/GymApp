@@ -11,6 +11,7 @@ struct SignInView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
         
@@ -57,9 +58,10 @@ struct SignInView: View {
               .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 VStack {
-                    NavigationLink{
-                        TabBar()
-                            .navigationBarBackButtonHidden()
+                    Button {
+                        Task {
+                            try await viewModel.signIn(withEmail: email, password: password)
+                        }
                     }
                          label: {
                       Text("Log In")

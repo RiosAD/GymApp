@@ -23,6 +23,7 @@ struct User: Identifiable, Codable {
     var fullname: String {
        return "\(firstName) \(lastName)"
     }
+    
 }
 
 extension User {

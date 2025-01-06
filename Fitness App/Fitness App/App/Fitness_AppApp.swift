@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct Fitness_AppApp: App {
+    @StateObject var viewModel = AuthModel()
+    
     var body: some Scene {
         WindowGroup {
             StartUp()
+                .environmentObject(viewModel)
         }
         .modelContainer(for: Exercises.self)
     }
