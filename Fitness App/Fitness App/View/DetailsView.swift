@@ -12,8 +12,8 @@ struct DetailsView: View {
     @State private var feet = ""
     @State private var inches = ""
     @State private var bodyWeight = ""
-    @State private var DOB = Date()
-   
+    @EnvironmentObject var viewModel: AuthModel
+    
     let maxFt = 1
     let maxIn = 2
     let maxLbs = 3
@@ -34,7 +34,7 @@ struct DetailsView: View {
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color(.lightWhite))
-                            .padding(.leading, 55)
+                            .padding(.leading, 30)
                             .padding(.bottom, 30)
                             .padding(.top, 20)
                     
@@ -67,9 +67,7 @@ struct DetailsView: View {
                                 .fontWeight(.semibold)
 
                             }
-                    
-                        .padding(.leading, 20)
-                        .padding(.bottom, 80)
+                            .padding(.bottom, 70)
                     
                     HStack(alignment: .lastTextBaseline) {
                             TextField("", text: $bodyWeight, prompt: Text("Weight").foregroundStyle(Color(.systemGray2)))
@@ -83,24 +81,13 @@ struct DetailsView: View {
                            .font(.system(size: 40))
                            .fontWeight(.semibold)
                     }
+                    .padding(.bottom, 15)
                     
-                    .padding(.leading, 20)
-                    .padding(.bottom, 40)
-                    
-                    DatePicker("Date of Birth", selection: $DOB, in: ...Date(), displayedComponents: .date)
-                        .datePickerStyle(.compact)
-                        .colorScheme(.dark)
-                        .tint(.midGreen)
-                        .fontWeight(.semibold)
-                        .font(.system(size: 35))
-                        .foregroundStyle(Color(white: 0.7))
-                        .padding(.horizontal, 20)
-                    
-                    
-                        NavigationLink {
-                            LogInDetailsView()
-                                .navigationBarBackButtonHidden()
+                    Button {
+                        Task {
+                            try await viewModel.createUserDetails(feet: feet, inches: inches, weight: bodyWeight)
                         }
+                    }
                                label: {
                             Text("Next")
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
@@ -111,7 +98,7 @@ struct DetailsView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
                     
-                    .padding(.leading, 55)
+                    .padding(.leading, 30)
                     .padding(.top, 35)
                     Spacer()
                }
