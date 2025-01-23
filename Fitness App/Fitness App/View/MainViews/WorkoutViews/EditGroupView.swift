@@ -99,5 +99,5 @@ struct EditGroupView: View {
     }
 }
 #Preview {
-    ExercisesView()
+    EditGroupView(exercise: Exercises.previewData[0])
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogInDetailsView: View {
+struct CreateLogInView: View {
     
     @State private var email = ""
     @State private var password = ""
@@ -22,12 +22,14 @@ struct LogInDetailsView: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 10) {
-                    Text("Create Log In")
-                        .font(.system(size: 40))
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color(.lightWhite))
-                        .padding(.bottom, 40)
+                    VStack {
+                        Text("Create Log In")
+                            .font(.system(size: 40))
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(Color(.lightWhite))
+                            .padding(.bottom, 40)
+                   
                     
                     TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
                         .fontWeight(.semibold)
@@ -42,17 +44,19 @@ struct LogInDetailsView: View {
                     SecureField("", text: $password, prompt: Text("Confirm Password").foregroundStyle(Color(.systemGray2)))
                         .fontWeight(.semibold)
                         .modifier(Input())
+                    }
+                    .padding(.horizontal, 15)
                     
                     VStack {
                         Button {
                             Task {
-                                try await viewModel.createUserPwd(withEmail: email, password: password)
+                                try await viewModel.createUser(withEmail: email, password: password)
                             }
                         }
                     label: {
-                        Text("Create Account")
+                        Text("Next")
                             .font(.custom("Arial-BoldMT", fixedSize: 18))
-                            .padding(.horizontal, 100)
+                            .padding(.horizontal, 95)
                             .padding(.vertical, 10)
                             .foregroundStyle(Color(.midGreen))
                             .background(Color(.lightWhite))
@@ -62,14 +66,13 @@ struct LogInDetailsView: View {
                     }
                     Spacer()
                 }
-                .padding(.horizontal, 15)
                 .padding(.top, 20)
             }
             
-            .modifier(Toolbar())
+            .toolbar(.hidden)
         }
     }
 }
 #Preview {
-    LogInDetailsView()
+    CreateLogInView()
 }

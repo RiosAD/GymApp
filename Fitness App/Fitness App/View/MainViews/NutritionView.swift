@@ -9,8 +9,6 @@ import SwiftUI
 
 struct NutritionView: View {
     var body: some View {
-        NavigationStack{
-            
             ZStack {
                 backgroundGradient
                     .ignoresSafeArea()
@@ -23,7 +21,6 @@ struct NutritionView: View {
                         .foregroundStyle(Color(.lightWhite))
                 }
             }
-        }
     }
 }
 

@@ -7,14 +7,19 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct Fitness_AppApp: App {
     @StateObject var viewModel = AuthModel()
     
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            StartUp()
+            Root()
                 .environmentObject(viewModel)
         }
         .modelContainer(for: Exercises.self)
