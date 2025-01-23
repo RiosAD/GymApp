@@ -9,27 +9,28 @@ import Foundation
 import FirebaseAuth
 import Firebase
 
+@MainActor
 class AuthModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
     init () {
-        
+        self.userSession = Auth.auth().currentUser
     }
     
     func signIn(withEmail email: String, password: String) async throws {
         
     }
     
-    func createUser(firstName: String, lastName: String, birthDate: Date) async throws {
+    func createUser(withEmail email: String, password: String) async throws {
         
     }
     
-    func createUserDetails(feet: String, inches: String, weight: String) async throws {
+    func addUserName(firstName: String, lastName: String, birthDate: Date) async throws {
         
     }
     
-    func createUserPwd(withEmail email: String, password: String) async throws {
+    func addUserDetails(feet: String, inches: String, weight: String) async throws {
         
     }
     

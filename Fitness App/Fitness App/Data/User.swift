@@ -12,6 +12,7 @@ struct User: Identifiable, Codable {
     let firstName: String
     let lastName: String
     let age: Int
+    let DOB: Date
     let feet: Int
     let inches: Int
     let weight: Int
@@ -27,5 +28,5 @@ struct User: Identifiable, Codable {
 }
 
 extension User {
-    static var testUser = User(id: NSUUID().uuidString, firstName: "Daniel", lastName: "Nava", age: 26, feet: 5, inches: 8, weight: 195)
+    static var testUser = User(id: NSUUID().uuidString, firstName: "Daniel", lastName: "Nava", age: 26, DOB: Date(), feet: 5, inches: 8, weight: 195)
 }

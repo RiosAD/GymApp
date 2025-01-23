@@ -10,7 +10,6 @@ import SwiftUI
 struct TabBar: View {
     var body: some View {
         TabView{
-            
             ExercisesView()
                 .tabItem {
                     Image(systemName: "dumbbell")
@@ -35,7 +34,6 @@ struct TabBar: View {
                 .tag(2)
                 .transition(AnyTransition.move(edge: .leading).combined(with: .slide))
         }
-       
         .onAppear() {
             UITabBar.appearance().backgroundColor = .darkGreen
             UITabBar.appearance().unselectedItemTintColor = .lightGreen

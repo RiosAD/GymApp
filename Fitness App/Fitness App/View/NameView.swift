@@ -9,10 +9,11 @@ import SwiftUI
 
 struct NameView: View {
     
+    
     @State private var firstName = ""
     @State private var lastName = "" 
     @State private var DOB = Date()
-    @EnvironmentObject var viewModel: AuthModel
+    @State private var showDOBSheet = false
     
     var body: some View {
         
@@ -40,26 +41,47 @@ struct NameView: View {
                     TextField("", text: $lastName, prompt: Text("Last Name").foregroundStyle(Color(.systemGray2)))
                         .modifier(Input())
                        
-                    
-                    DatePicker("Date of Birth", selection: $DOB, in: ...Date(), displayedComponents: .date)
-                        .datePickerStyle(.compact)
-                        .colorScheme(.dark)
-                        .tint(.midGreen)
+                    HStack {
+                        
+                        Text("Birthdate")
+                            .font(.system(size: 25))
+                            .foregroundStyle(Color(.systemGray2))
+                            .fontWeight(.semibold)
+                        
+                        Image(systemName: "calendar")
+                            .font(.system(size: 20))
+                            .foregroundStyle(Color(.systemGray2))
+                        
+                        Spacer()
+                        
+                        Button ("\(DOB.formatted(date: .numeric, time: .omitted))") {
+                            showDOBSheet.toggle()
+                            
+                        }
+                        .padding(5)
+                        .font(.system(size: 20))
+                        .foregroundStyle(Color(.lightWhite))
                         .fontWeight(.semibold)
-                        .font(.system(size: 35))
-                        .foregroundStyle(Color(white: 0.7))
-                        .padding(.horizontal, 3)
+                        
+                        .sheet(isPresented: $showDOBSheet, content: {
+                            BirthdateSheet(dateOfBirth: $DOB)
+                                .presentationDetents([.height(350)])
+                        })
+                    }
+                    .padding()
+                    .background(Color(.darkGreen))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
                     
                     VStack {
-                        Button {
-                            Task {
-                                try await viewModel.createUser(firstName: firstName, lastName: lastName, birthDate: DOB)
-                            }
+                        NavigationLink {
+                            DetailsView()
+                                .navigationBarBackButtonHidden()
                         }
                                label: {
                             Text("Next")
                                 .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                .padding(.horizontal, 140)
+                                .padding(.horizontal, 130)
                                 .padding(.vertical, 10)
                                 .foregroundStyle(Color(.midGreen))
                                 .background(Color(.lightWhite))
@@ -74,12 +96,8 @@ struct NameView: View {
                 
                 .padding(.horizontal, 15)
                 .padding(.top, 20)
-                
-              
-                
-                .modifier(Toolbar())
             })
-            
+            .modifier(Toolbar())
         }
         
         

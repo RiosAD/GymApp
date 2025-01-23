@@ -23,7 +23,6 @@ struct ExercisesView: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-        NavigationStack{
             ZStack {
                 backgroundGradient
                     .ignoresSafeArea()
@@ -123,8 +122,6 @@ struct ExercisesView: View {
                 }
                 
             }
-        }
-        
     }
     
     
