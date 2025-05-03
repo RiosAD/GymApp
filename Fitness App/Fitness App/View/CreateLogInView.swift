@@ -12,6 +12,7 @@ struct CreateLogInView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPwd = ""
+    @State private var showPassword = false
     @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
@@ -36,40 +37,34 @@ struct CreateLogInView: View {
                         .modifier(Input())
                         .padding(.bottom, 5)
                     
-                    SecureField("", text: $password, prompt: Text("Password").foregroundStyle(Color(.systemGray2)))
-                        .fontWeight(.semibold)
-                        .modifier(Input())
+                        PasswordFieldToggle(placeholder: "Password", text: $password, displayPassword: $showPassword)
                         .padding(.bottom, 5)
                     
-                    SecureField("", text: $password, prompt: Text("Confirm Password").foregroundStyle(Color(.systemGray2)))
-                        .fontWeight(.semibold)
-                        .modifier(Input())
+                        PasswordFieldToggle(placeholder: "Confirm Password", text: $confirmPwd, displayPassword: $showPassword)
                     }
                     .padding(.horizontal, 15)
                     
-                    VStack {
-                        Button {
-                            Task {
-                                try await viewModel.createUser(withEmail: email, password: password)
-                            }
-                        }
-                    label: {
-                        Text("Next")
-                            .font(.custom("Arial-BoldMT", fixedSize: 18))
-                            .padding(.horizontal, 95)
-                            .padding(.vertical, 10)
-                            .foregroundStyle(Color(.midGreen))
-                            .background(Color(.lightWhite))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                        }
-                    .padding(.top, 25)
-                    }
+//                    VStack {
+//                        Button {
+//                            Task {
+//                                try await viewModel.createUser(withEmail: email, password: password)
+//                            }
+//                        }
+//                    label: {
+//                        Text("Next")
+//                            .font(.custom("Arial-BoldMT", fixedSize: 18))
+//                            .padding(.horizontal, 95)
+//                            .padding(.vertical, 10)
+//                            .foregroundStyle(Color(.midGreen))
+//                            .background(Color(.lightWhite))
+//                            .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        }
+//                    .padding(.top, 25)
+//                    }
                     Spacer()
                 }
                 .padding(.top, 20)
             }
-            
-            .toolbar(.hidden)
         }
     }
 }

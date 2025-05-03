@@ -52,7 +52,7 @@ struct StartUp: View {
                         
                         //LogIn Button
                         NavigationLink {
-                            NameView()
+                            SignUpFlow()
                                 .navigationBarBackButtonHidden()
                         }
                                label: {
