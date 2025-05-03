@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 import FirebaseAuth
 import Firebase
 
@@ -22,16 +23,13 @@ class AuthModel: ObservableObject {
         
     }
     
-    func createUser(withEmail email: String, password: String) async throws {
-        
-    }
-    
-    func addUserName(firstName: String, lastName: String, birthDate: Date) async throws {
-        
-    }
-    
-    func addUserDetails(feet: String, inches: String, weight: String) async throws {
-        
+    func createUser(withEmail email: String, password: String, firstName: String, lastName: String, birthDate: Date, feet: String, inches: String, weight: String) async throws {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            self.userSession = result.user
+        } catch {
+            print("DEBUG: Failed to create user. ERROR:\(error.localizedDescription)")
+        }
     }
     
     func signOut() {

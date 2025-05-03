@@ -73,22 +73,22 @@ struct NameView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                     
-                    VStack {
-                        NavigationLink {
-                            DetailsView()
-                                .navigationBarBackButtonHidden()
-                        }
-                               label: {
-                            Text("Next")
-                                .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                .padding(.horizontal, 130)
-                                .padding(.vertical, 10)
-                                .foregroundStyle(Color(.midGreen))
-                                .background(Color(.lightWhite))
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                            }
-                    }
-                    .padding(.top, 20)
+//                    VStack {
+//                        NavigationLink {
+//                            DetailsView()
+//                                .navigationBarBackButtonHidden()
+//                        }
+//                               label: {
+//                            Text("Next")
+//                                .font(.custom("Arial-BoldMT", fixedSize: 18))
+//                                .padding(.horizontal, 130)
+//                                .padding(.vertical, 10)
+//                                .foregroundStyle(Color(.midGreen))
+//                                .background(Color(.lightWhite))
+//                                .clipShape(RoundedRectangle(cornerRadius: 20))
+//                            }
+//                    }
+//                    .padding(.top, 20)
                     Spacer()
                     
                     
@@ -97,7 +97,7 @@ struct NameView: View {
                 .padding(.horizontal, 15)
                 .padding(.top, 20)
             })
-            .modifier(Toolbar())
+//            .modifier(Toolbar())
         }
         
         

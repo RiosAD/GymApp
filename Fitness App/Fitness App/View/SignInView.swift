@@ -11,6 +11,7 @@ struct SignInView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var showPassword = false
     @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
@@ -27,7 +28,7 @@ struct SignInView: View {
                 Text("Gym App")
                     .multilineTextAlignment(.center)
                     .font(.custom("Arial-BoldMT", fixedSize: 70))
-                    .foregroundStyle(Color(white: 0.9))
+                    .foregroundStyle(Color(.lightWhite))
                     .opacity(0.7)
                     .padding(.bottom, 30)
                 
@@ -35,13 +36,10 @@ struct SignInView: View {
                 VStack(spacing: 10){
                   
                     TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
-                        .textInputAutocapitalization(.never)
-                        .fontWeight(.semibold)
                         .modifier(Input())
                         .padding(.bottom, 5)
                     
-                    SecureField("", text: $password, prompt: Text("Password").foregroundStyle(Color(.systemGray2)))
-                        .modifier(Input())
+                    PasswordFieldToggle(placeholder: "Password" , text: $password, displayPassword: $showPassword)
                   
             }
              

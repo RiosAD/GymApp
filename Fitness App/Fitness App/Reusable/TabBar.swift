@@ -16,7 +16,6 @@ struct TabBar: View {
                     Text("Exercises")
                 }
                 .tag(0)
-                .transition(AnyTransition.move(edge: .leading).combined(with: .slide))
             
             NutritionView()
                 .tabItem {
@@ -24,7 +23,6 @@ struct TabBar: View {
                     Text("Nutrition")
                 }
                 .tag(1)
-                .transition(AnyTransition.move(edge: .leading).combined(with: .slide))
             
             ProfileView()
                 .tabItem {
@@ -32,7 +30,6 @@ struct TabBar: View {
                     Text("Profile")
                 }
                 .tag(2)
-                .transition(AnyTransition.move(edge: .leading).combined(with: .slide))
         }
         .onAppear() {
             UITabBar.appearance().backgroundColor = .darkGreen

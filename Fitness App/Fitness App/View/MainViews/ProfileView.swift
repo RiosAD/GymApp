@@ -16,7 +16,7 @@ struct ProfileView: View {
                 
                 VStack(alignment: .center, spacing: 5) {
                         Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 90))
+                            .font(.system(size: 110))
                             .foregroundStyle(Color(.lightWhite).opacity(0.85))
                             .padding(.vertical)
                         
@@ -44,7 +44,7 @@ struct ProfileView: View {
                                         .frame(width: 58, height: 2)
                                 }
                             
-                            Text("\(User.testUser.age)")
+                            Text("26")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
