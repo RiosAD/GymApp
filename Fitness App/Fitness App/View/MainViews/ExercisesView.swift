@@ -23,7 +23,7 @@ struct ExercisesView: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 backgroundGradient
                     .ignoresSafeArea()
                 
@@ -99,27 +99,23 @@ struct ExercisesView: View {
                             }
                         }
                     }
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            showCreateSheet.toggle()
-                        }, label: {
-                            Image(systemName: "plus.circle.fill")
-                            
-                        })
+                 }
+                
+                Button(action: {
+                    showCreateSheet.toggle()
+                }, label: {
+                    Image(systemName: "plus.circle.fill")
                         .font(.system(size: 50))
                         .foregroundStyle(Color.lightWhite)
-                        
-                    }
-                    .padding(.trailing, 12)
-                    .sheet(isPresented: $showCreateSheet, content: {
-                        Create_New_Exercise_View()
-                            .presentationDetents([.height(670)])
-                    })
-                    .padding(.bottom, 15)
-                }
+                        .shadow(radius: 5)
+                })
+                .padding(.trailing, 12)
+                
+            .sheet(isPresented: $showCreateSheet, content: {
+                Create_New_Exercise_View()
+                    .presentationDetents([.height(670)])
+            })
+            .padding(.bottom, 15)
                 
             }
     }

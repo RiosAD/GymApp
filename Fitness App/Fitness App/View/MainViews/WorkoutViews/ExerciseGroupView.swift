@@ -93,7 +93,7 @@ struct ExerciseGroupView: View {
 
                          }
                         .padding(.top, 10)
-                       
+                        .padding(.trailing, 15)
                     }
                     .padding(.bottom)
                 }
@@ -115,4 +115,11 @@ struct ExerciseGroupView: View {
         .padding(2)
     }
         
+}
+
+#Preview {
+    let preview = PreviewSampleData()
+    preview.addSample(Exercises.previewData)
+    return ExercisesView()
+        .modelContainer(preview.container)
 }

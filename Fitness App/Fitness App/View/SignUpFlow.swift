@@ -9,8 +9,8 @@ import SwiftUI
 
 enum SignUpFlowStep: Int, CaseIterable {
 case createAccount
-case addName
 case addDetails
+case addName
 }
 
 struct SignUpFlow: View {
@@ -19,12 +19,13 @@ struct SignUpFlow: View {
     var body: some View {
         Group {
             switch currentStep {
+                
             case .createAccount:
                 CreateLogInView()
-            case .addName:
-                NameView()
             case .addDetails:
                 DetailsView()
+            case .addName:
+                NameView()
             }
         }
         .transition(.slide)
