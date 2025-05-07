@@ -11,13 +11,15 @@ struct Root: View {
     @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
-        Group {
-            if viewModel.userSession != nil {
-                StartUp()
-            } else {
-                TabBar()
-            }
-        }
+//        Group {
+//            if viewModel.userSession != nil {
+//                StartUp()
+//            } else {
+//                TabBar()
+//            }
+//        }
+        
+        StartUp()
     }
 }
 

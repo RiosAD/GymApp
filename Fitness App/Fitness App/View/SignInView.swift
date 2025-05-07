@@ -16,72 +16,78 @@ struct SignInView: View {
     
     var body: some View {
         
-        ZStack{
-            backgroundGradient
-                .ignoresSafeArea()
-            
-            VStack(spacing: 12) {
-            
-              Spacer()
+        NavigationStack {
+            ZStack{
+                backgroundGradient
+                    .ignoresSafeArea()
                 
-                //Image
-                Text("Gym App")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Arial-BoldMT", fixedSize: 70))
-                    .foregroundStyle(Color(.lightWhite))
-                    .opacity(0.7)
-                    .padding(.bottom, 30)
-                
-                //Form Fields
-                VStack(spacing: 10){
-                  
-                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
-                        .modifier(Input())
-                        .padding(.bottom, 5)
+                VStack(spacing: 12) {
                     
-                    PasswordFieldToggle(placeholder: "Password" , text: $password, displayPassword: $showPassword)
-                  
-            }
-             
-              Button(action: {
-                  //Execute
-              },
-                     label: {
-                  Text("Forgot Password?")
-                      .font(.footnote)
-                      .fontWeight(.semibold)
-                      .foregroundStyle(Color(.lightGreen))
-                      .padding(.trailing, 5)
-              })
-              .frame(maxWidth: .infinity, alignment: .trailing)
-                
-                VStack {
-                    Button {
-                        Task {
-                            try await viewModel.signIn(withEmail: email, password: password)
+                    Spacer()
+                    
+                    //Image
+                    Text("Gym App")
+                        .multilineTextAlignment(.center)
+                        .font(.custom("Arial-BoldMT", fixedSize: 70))
+                        .foregroundStyle(Color(.lightWhite))
+                        .opacity(0.7)
+                        .padding(.bottom, 30)
+                    
+                    //Form Fields
+                    VStack(spacing: 10){
+                        
+                        TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
+                            .modifier(Input())
+                            .padding(.bottom, 5)
+                        
+                        PasswordFieldToggle(placeholder: "Password" , text: $password, displayPassword: $showPassword)
+                        
+                    }
+                    
+                    Button(action: {
+                        //Execute
+                    },
+                           label: {
+                        Text("Forgot Password?")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(Color(.lightGreen))
+                            .padding(.trailing, 5)
+                    })
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                    VStack {
+                        Button {
+                            
+                        }
+                        label: {
+                            Text("Log In")
+                                .font(.custom("Arial-BoldMT", fixedSize: 18))
+                                .padding(.horizontal, 120)
+                                .padding(.vertical, 10)
+                                .foregroundStyle(Color(.midGreen))
+                                .background(Color(.lightWhite))
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                         }
                     }
-                         label: {
-                      Text("Log In")
-                          .font(.custom("Arial-BoldMT", fixedSize: 18))
-                          .padding(.horizontal, 120)
-                          .padding(.vertical, 10)
-                          .foregroundStyle(Color(.midGreen))
-                          .background(Color(.lightWhite))
-                          .clipShape(RoundedRectangle(cornerRadius: 20))
-                      }
                     
-//                     .padding(.top, 10)
+                    
+                    Spacer()
+                    
+                    NavigationLink {
+                        StartUp()
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        Text("Return Home")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(Color(.lightGreen))
+                    }
+                    
                 }
-              
-
-                Spacer()
-               
+                .padding(.horizontal, 20)
+                .padding(.bottom, 120)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 120)
-            
-            .modifier(Toolbar())
         }
     }
 }
