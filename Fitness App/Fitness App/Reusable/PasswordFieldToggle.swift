@@ -23,9 +23,9 @@ struct PasswordFieldToggle: View {
                         }
                     }   label: {
                         Image(systemName: "eye")
+                            .contentTransition(.symbolEffect)
                             .foregroundColor(Color(.lightGreen))
                             .padding()
-                            .contentTransition(.symbolEffect)
                     }
                 }
                
@@ -41,9 +41,9 @@ struct PasswordFieldToggle: View {
                         }
                     }   label: {
                         Image(systemName: "eye.slash")
+                            .contentTransition(.symbolEffect)
                             .foregroundColor(Color(.systemGray))
                             .padding()
-                            .contentTransition(.symbolEffect)
                     }
                 }
 
