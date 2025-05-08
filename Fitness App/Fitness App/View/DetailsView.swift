@@ -87,26 +87,9 @@ struct DetailsView: View {
                 }
                     .padding(.trailing, 50)
                     
-//                    VStack {
-//                        NavigationLink {
-//                            CreateLogInView()
-//                                .navigationBarBackButtonHidden()
-//                        }
-//                        label: {
-//                            Text("Create Account")
-//                                .font(.custom("Arial-BoldMT", fixedSize: 18))
-//                                .padding(.horizontal, 85)
-//                                .padding(.vertical, 10)
-//                                .foregroundStyle(Color(.midGreen))
-//                                .background(Color(.lightWhite))
-//                                .clipShape(RoundedRectangle(cornerRadius: 20))
-//                        }
-//                    }
-//                    .padding(.top, 35)
                     Spacer()
                }
             }
-//                .modifier(Toolbar())
         }
         
     }

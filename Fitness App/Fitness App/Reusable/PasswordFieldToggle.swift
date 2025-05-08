@@ -13,41 +13,33 @@ struct PasswordFieldToggle: View {
     @Binding var displayPassword: Bool
     
     var body: some View {
-        if displayPassword {
-            TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
-                .modifier(Input())
-                .overlay(alignment: .trailing) {
-                    Button {
-                        withAnimation(.snappy) {
-                            displayPassword = false
-                        }
-                    }   label: {
-                        Image(systemName: "eye")
-                            .contentTransition(.symbolEffect)
-                            .foregroundColor(Color(.lightGreen))
-                            .padding()
-                    }
-                }
-               
-                
-        }
-        else {
-            SecureField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
-                .modifier(Input())
-                .overlay(alignment: .trailing) {
-                    Button {
-                        withAnimation(.snappy) {
-                            displayPassword = true
-                        }
-                    }   label: {
-                        Image(systemName: "eye.slash")
-                            .contentTransition(.symbolEffect)
-                            .foregroundColor(Color(.systemGray))
-                            .padding()
-                    }
-                }
-
+        ZStack {
+            if displayPassword {
+                TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
+                    .modifier(Input())
+                   
+                   
+                    
+            }
+            else {
+                SecureField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
+                    .modifier(Input())   
+            }
             
+            HStack {
+                Spacer()
+                
+                Button {
+                    withAnimation(.snappy) {
+                        displayPassword.toggle()
+                    }
+                }   label: {
+                    Image(systemName: displayPassword ? "eye" : "eye.slash")
+                        .contentTransition(.symbolEffect(.replace.magic(fallback: .downUp.wholeSymbol), options: .nonRepeating))
+                        .foregroundColor(displayPassword ? Color.textGreen : Color(.systemGray2))
+                        .padding()
+                }
+            }
         }
     }
 }

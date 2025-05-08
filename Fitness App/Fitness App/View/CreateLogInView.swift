@@ -44,23 +44,6 @@ struct CreateLogInView: View {
                     }
                     .padding(.horizontal, 15)
                     
-//                    VStack {
-//                        Button {
-//                            Task {
-//                                try await viewModel.createUser(withEmail: email, password: password)
-//                            }
-//                        }
-//                    label: {
-//                        Text("Next")
-//                            .font(.custom("Arial-BoldMT", fixedSize: 18))
-//                            .padding(.horizontal, 95)
-//                            .padding(.vertical, 10)
-//                            .foregroundStyle(Color(.midGreen))
-//                            .background(Color(.lightWhite))
-//                            .clipShape(RoundedRectangle(cornerRadius: 20))
-//                        }
-//                    .padding(.top, 25)
-//                    }
                     Spacer()
                 }
                 .padding(.top, 20)

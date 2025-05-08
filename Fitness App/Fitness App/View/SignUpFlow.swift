@@ -40,8 +40,9 @@ struct SignUpFlow: View {
                     HStack {
                         
                         if currentStep == .createAccount {
-                            Button {
-                                backButton()
+                            NavigationLink {
+                                StartUp()
+                                    .navigationBarBackButtonHidden()
                             } label: {
                                 Text("Back")
                                     .font(.custom("Arial-BoldMT", fixedSize: 18))
@@ -51,8 +52,6 @@ struct SignUpFlow: View {
                                     .background(Color(.lightWhite))
                                     .clipShape(RoundedRectangle(cornerRadius: 20))
                                     .padding(.leading, 30)
-                                    .disabled(true)
-                                    .opacity(0.7)
                             }
                             
                         } else {
@@ -106,17 +105,6 @@ struct SignUpFlow: View {
                                     .padding(.trailing, 30)
                             }
                         }
-                    }
-                    
-                    
-                        NavigationLink {
-                            StartUp()
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                        Text("Return Home")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color(.lightGreen))
                     }
                 }
             }
