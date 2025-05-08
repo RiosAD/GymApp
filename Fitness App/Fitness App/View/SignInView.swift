@@ -55,6 +55,7 @@ struct SignInView: View {
                             .padding(.trailing, 5)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.bottom, 5)
                     
                     VStack {
                         Button {
@@ -74,19 +75,23 @@ struct SignInView: View {
                     
                     Spacer()
                     
-                    NavigationLink {
-                        StartUp()
-                            .navigationBarBackButtonHidden()
-                    } label: {
-                        Text("Return Home")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color(.lightGreen))
+                    VStack {
+                        Spacer()
+                        
+                        NavigationLink {
+                            StartUp()
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            Text("Return Home")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(Color(.textGreen))
+                        }
                     }
                     
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 120)
+                .padding(.top, 90)
             }
         }
     }
