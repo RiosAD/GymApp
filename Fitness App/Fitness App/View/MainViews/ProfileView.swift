@@ -22,7 +22,7 @@ struct ProfileView: View {
                         
                     HStack(alignment: .center) {
                         
-                        Text(User.testUser.fullname)
+                        Text("Angel Nava")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundStyle(Color(.lightWhite))
@@ -63,7 +63,11 @@ struct ProfileView: View {
                                         .frame(width: 95, height: 2)
                                 }
                             
-                            Text("\(User.testUser.weight)")
+//                            Text("\(User.testUser.weight)")
+//                                .font(.system(size: 30))
+//                                .foregroundStyle(Color(.lightWhite))
+                            
+                            Text("175")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
@@ -83,7 +87,7 @@ struct ProfileView: View {
                                         .frame(width: 92, height: 2)
                                 }
                             
-                            Text("\(User.testUser.height)")
+                            Text("5'8")
                                 .font(.system(size: 30))
                                 .foregroundStyle(Color(.lightWhite))
                         }
