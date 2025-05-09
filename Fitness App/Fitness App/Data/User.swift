@@ -8,26 +8,40 @@
 import Foundation
 import SwiftData
 
-struct User: Identifiable, Codable {
-    let id: String
-    let email: String
-    let firstName: String
-    let lastName: String
-    let DOB: Date
-    let feet: Int
-    let inches: Int
-    let weight: Int
+@Transient
+class User: Identifiable {
+    var id: String
+    var email: String
+    var firstName: String
+    var lastName: String
+    var DOB: Date
+    var feet: Int
+    var inches: Int
+    var weight: Int
     
-    var height: String {
-       return "\(feet)\("'")\(inches)"
+    
+    init(email: String, firstName: String, lastName: String, DOB: Date, feet: Int, inches: Int, weight: Int) {
+        self.id = UUID().uuidString
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
+        self.DOB = DOB
+        self.feet = feet
+        self.inches = inches
+        self.weight = weight
     }
     
-    var fullname: String {
-       return "\(firstName) \(lastName)"
-    }
+//    var height: String {
+//       return "\(feet)\("'")\(inches)"
+//    }
+//    
+//    var fullname: String {
+//       return "\(firstName) \(lastName)"
+//    }
+    
     
 }
 
-extension User {
-    static var testUser = User(id: NSUUID().uuidString, email: "arios_21@outlook.com", firstName: "Daniel", lastName: "Nava", DOB: Date(), feet: 5, inches: 8, weight: 195)
-}
+//extension User {
+//    static var testUser = User(email: "arios_21@outlook.com", firstName: "Daniel", lastName: "Nava", DOB: Date(), feet: 5, inches: 8, weight: 195)
+//}

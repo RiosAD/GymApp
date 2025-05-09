@@ -15,6 +15,7 @@ case addName
 
 struct SignUpFlow: View {
     @State private var currentStep: SignUpFlowStep = .createAccount
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack {
