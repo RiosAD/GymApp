@@ -14,16 +14,22 @@ struct PasswordFieldToggle: View {
     
     var body: some View {
         ZStack {
+            
             if displayPassword {
-                TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
-                    .modifier(Input())
-                   
-                   
-                    
+                withAnimation (.snappy) {
+                    TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
+                        .modifier(Input())
+                }
+                .transition(.asymmetric(insertion: .scale(scale: 1, anchor: .top), removal: .scale(scale: 1, anchor: .top)))
+//                .transition(.scale(scale: 1, anchor: .top))
             }
             else {
-                SecureField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
-                    .modifier(Input())   
+                withAnimation(.snappy) {
+                    SecureField("", text: $text, prompt: Text(placeholder).foregroundStyle(Color(.systemGray2)))
+                        .modifier(Input())
+                }
+                .transition(.asymmetric(insertion: .scale(scale: 1, anchor: .top), removal: .scale(scale: 1, anchor: .top)))
+//                .transition(.scale(scale: 1, anchor: .top))
             }
             
             HStack {
