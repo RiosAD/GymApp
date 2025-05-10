@@ -12,6 +12,7 @@ struct SignInView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var showPassword = false
+    @State private var returnHome = false
     @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
@@ -78,9 +79,10 @@ struct SignInView: View {
                     VStack {
                         Spacer()
                         
-                        NavigationLink {
-                            StartUp()
-                                .navigationBarBackButtonHidden()
+                        Button {
+                            withAnimation(.snappy) {
+                                returnHome.toggle()
+                            }
                         } label: {
                             Text("Return Home")
                                 .font(.footnote)
@@ -88,10 +90,13 @@ struct SignInView: View {
                                 .foregroundStyle(Color(.textGreen))
                         }
                     }
-                    
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 90)
+                if returnHome {
+                    StartUp()
+                        .transition(.move(edge: .leading))
+                }
             }
         }
     }
