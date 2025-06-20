@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StartUp: View {
+    @State private var showSignIn = false
     
     var body: some View {
         NavigationStack {
@@ -33,9 +34,10 @@ struct StartUp: View {
                         
                     
                         //LogIn Button
-                        NavigationLink {
-                           SignInView()
-                                .navigationBarBackButtonHidden()
+                        Button {
+                            withAnimation(.snappy) {
+                                showSignIn.toggle()
+                            }
                         }
                             label: {
                             Text("Log In")
@@ -73,6 +75,11 @@ struct StartUp: View {
                    .padding(.top, 200)
                     
                 }
+                if showSignIn {
+                    SignInView()
+                        .transition(.move(edge: .leading))
+                }
+                
             }
         }
         

@@ -38,6 +38,7 @@ struct SignInView: View {
                     VStack(spacing: 10){
                         
                         TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
+                            .keyboardType(.emailAddress)
                             .modifier(Input())
                             .padding(.bottom, 5)
                         
@@ -95,7 +96,7 @@ struct SignInView: View {
                 .padding(.top, 90)
                 if returnHome {
                     StartUp()
-                        .transition(.move(edge: .leading))
+                        .transition(.move(edge: .trailing))
                 }
             }
         }

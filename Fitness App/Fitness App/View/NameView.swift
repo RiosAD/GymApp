@@ -10,9 +10,10 @@ import SwiftUI
 struct NameView: View {
     
     
-    @State private var firstName = ""
-    @State private var lastName = "" 
-    @State private var DOB = Date()
+//    @State private var firstName = ""
+//    @State private var lastName = "" 
+//    @State private var DOB = Date()
+    @Binding var newUser: UserData
     @State private var showDOBSheet = false
     
     var body: some View {
@@ -34,11 +35,11 @@ struct NameView: View {
                         .padding(.bottom, 30)
                     
                     
-                    TextField("", text: $firstName, prompt: Text("First Name").foregroundStyle(Color(.systemGray2)))
+                    TextField("", text: $newUser.firstName, prompt: Text("First Name").foregroundStyle(Color(.systemGray2)))
                         .modifier(Input())
                         
                     
-                    TextField("", text: $lastName, prompt: Text("Last Name").foregroundStyle(Color(.systemGray2)))
+                    TextField("", text: $newUser.lastName, prompt: Text("Last Name").foregroundStyle(Color(.systemGray2)))
                         .modifier(Input())
                        
                     HStack {
@@ -54,7 +55,7 @@ struct NameView: View {
                         
                         Spacer()
                         
-                        Button ("\(DOB.formatted(date: .numeric, time: .omitted))") {
+                        Button ("\(newUser.DOB.formatted(date: .numeric, time: .omitted))") {
                             showDOBSheet.toggle()
                             
                         }
@@ -64,7 +65,7 @@ struct NameView: View {
                         .fontWeight(.semibold)
                         
                         .sheet(isPresented: $showDOBSheet, content: {
-                            BirthdateSheet(dateOfBirth: $DOB)
+                            BirthdateSheet(dateOfBirth: $newUser.DOB)
                                 .presentationDetents([.height(350)])
                         })
                     }
@@ -86,6 +87,6 @@ struct NameView: View {
     }
 }
 
-#Preview {
-    NameView()
-}
+//#Preview {
+//    NameView(newUser: UserData)
+//}
