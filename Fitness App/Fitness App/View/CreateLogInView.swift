@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CreateLogInView: View {
     
-    @State private var email = ""
-    @State private var password = ""
+//    @State private var email = ""
+//    @State private var password = ""
+    @Binding var newUser: UserData
     @State private var confirmPwd = ""
     @State private var showPassword = false
     @EnvironmentObject var viewModel: AuthModel
@@ -32,15 +33,19 @@ struct CreateLogInView: View {
                             .padding(.bottom, 40)
                    
                     
-                    TextField("", text: $email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
+                        TextField("", text: $newUser.email, prompt: Text("Email").foregroundStyle(Color(.systemGray2)))
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                         .fontWeight(.semibold)
                         .modifier(Input())
                         .padding(.bottom, 5)
                     
-                        PasswordFieldToggle(placeholder: "Password", text: $password, displayPassword: $showPassword)
+                        PasswordFieldToggle(placeholder: "Password", text: $newUser.password, displayPassword: $showPassword)
                         .padding(.bottom, 5)
+                        .textInputAutocapitalization(.never)
                     
                         PasswordFieldToggle(placeholder: "Confirm Password", text: $confirmPwd, displayPassword: $showPassword)
+                            .textInputAutocapitalization(.never)
                     }
                     .padding(.horizontal, 15)
                     
@@ -51,6 +56,6 @@ struct CreateLogInView: View {
         }
     }
 }
-#Preview {
-    CreateLogInView()
-}
+//#Preview {
+//    CreateLogInView(newUser: <#UserData#>)
+//}

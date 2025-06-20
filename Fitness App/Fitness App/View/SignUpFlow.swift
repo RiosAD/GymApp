@@ -16,7 +16,7 @@ case addName
 struct SignUpFlow: View {
     @State private var currentStep: SignUpFlowStep = .createAccount
     @State private var goHome = false
-    @Environment(\.modelContext) private var modelContext
+    @State private var newUser = UserData()
     
     var body: some View {
         NavigationStack {
@@ -24,102 +24,109 @@ struct SignUpFlow: View {
                 backgroundGradient
                     .ignoresSafeArea()
                 
-                Group {
-                    switch currentStep {
-                        
-                    case .createAccount:
-                        CreateLogInView()
-                    case .addDetails:
-                        DetailsView()
-                    case .addName:
-                        NameView()
+                VStack {
+                    ProgessBar(currentStep: currentStep)
+                        .padding(.horizontal)
+                    Group {
+                        switch currentStep {
+                            
+                        case .createAccount:
+                            CreateLogInView(newUser: $newUser)
+                        case .addDetails:
+                            DetailsView(newUser: $newUser)
+                        case .addName:
+                            NameView(newUser: $newUser)
+                        }
                     }
-                }
-                .transition(.blurReplace)
+                    .transition(.blurReplace)
+               
                 
                 //CONTENT NAVIGATION BUTTONS
-                VStack {
-                    HStack {
-                        
-                        if currentStep == .createAccount {
-                            withAnimation(.snappy) {
-                                Button {
-                                    withAnimation(.snappy) {
-                                        goHome.toggle()
-                                    }
-                                } label: {
-                                    Text("Home")
-                                        .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                        .padding(.horizontal, 35)
-                                        .padding(.vertical, 10)
-                                        .foregroundStyle(Color(.midGreen))
-                                        .background(Color(.lightWhite))
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .padding(.leading, 30)
-                                }
-                                .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .leading), removal: .scale(scale: 1, anchor: .leading)))
-                            }
+                    
+                    VStack {
+                        HStack {
                             
-                        } else {
-                            withAnimation(.snappy) {
-                                Button {
-                                    withAnimation(.snappy) {
-                                        backButton()
+                            if currentStep == .createAccount {
+                                withAnimation(.snappy) {
+                                    Button {
+                                        withAnimation(.snappy) {
+                                            goHome.toggle()
+                                        }
+                                    } label: {
+                                        Text("Home")
+                                            .font(.custom("Arial-BoldMT", fixedSize: 18))
+                                            .padding(.horizontal, 35)
+                                            .padding(.vertical, 10)
+                                            .foregroundStyle(Color(.midGreen))
+                                            .background(Color(.lightWhite))
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .padding(.leading, 30)
                                     }
-                                } label: {
-                                    Text("Back")
-                                        .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                        .padding(.horizontal, 35)
-                                        .padding(.vertical, 10)
-                                        .foregroundStyle(Color(.midGreen))
-                                        .background(Color(.lightWhite))
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .padding(.leading, 30)
+                                    .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .leading), removal: .scale(scale: 1, anchor: .leading)))
                                 }
-                            }
-                            .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .trailing), removal: .scale(scale: 1, anchor: .trailing)))
-                            
-                        }
-                        Spacer()
-                        
-                        if currentStep == .addName {
-                            withAnimation(.snappy) {
-                                Button {
-                                    
-                                } label: {
-                                    Text("Finish")
-                                        .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                        .padding(.horizontal, 35)
-                                        .padding(.vertical, 10)
-                                        .foregroundStyle(Color(.midGreen))
-                                        .background(Color(.lightWhite))
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .padding(.trailing, 30)
+                                
+                            } else {
+                                withAnimation(.snappy) {
+                                    Button {
+                                        withAnimation(.snappy) {
+                                            backButton()
+                                        }
+                                    } label: {
+                                        Text("Back")
+                                            .font(.custom("Arial-BoldMT", fixedSize: 18))
+                                            .padding(.horizontal, 35)
+                                            .padding(.vertical, 10)
+                                            .foregroundStyle(Color(.midGreen))
+                                            .background(Color(.lightWhite))
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .padding(.leading, 30)
+                                    }
                                 }
                                 .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .trailing), removal: .scale(scale: 1, anchor: .trailing)))
+                                
                             }
+                            Spacer()
                             
-                        } 
-                        else {
-                            withAnimation(.snappy) {
-                                Button {
-                                    withAnimation(.snappy) {
-                                        nextButton()
+                            if currentStep == .addName {
+                                withAnimation(.snappy) {
+                                    Button {
+                                        
+                                    } label: {
+                                        Text("Finish")
+                                            .font(.custom("Arial-BoldMT", fixedSize: 18))
+                                            .padding(.horizontal, 35)
+                                            .padding(.vertical, 10)
+                                            .foregroundStyle(Color(.midGreen))
+                                            .background(Color(.lightWhite))
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .padding(.trailing, 30)
                                     }
-                                    
-                                } label: {
-                                    Text("Next")
-                                        .font(.custom("Arial-BoldMT", fixedSize: 18))
-                                        .padding(.horizontal, 35)
-                                        .padding(.vertical, 10)
-                                        .foregroundStyle(Color(.midGreen))
-                                        .background(Color(.lightWhite))
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .padding(.trailing, 30)
+                                    .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .trailing), removal: .scale(scale: 1, anchor: .trailing)))
                                 }
-                                .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .leading), removal: .scale(scale: 1, anchor: .leading)))
+                                
+                            } 
+                            else {
+                                withAnimation(.snappy) {
+                                    Button {
+                                        withAnimation(.snappy) {
+                                            nextButton()
+                                        }
+                                        
+                                    } label: {
+                                        Text("Next")
+                                            .font(.custom("Arial-BoldMT", fixedSize: 18))
+                                            .padding(.horizontal, 35)
+                                            .padding(.vertical, 10)
+                                            .foregroundStyle(Color(.midGreen))
+                                            .background(Color(.lightWhite))
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .padding(.trailing, 30)
+                                    }
+                                    .transition(.asymmetric(insertion: .scale(scale: 0.9, anchor: .leading), removal: .scale(scale: 1, anchor: .leading)))
+                                }
                             }
                         }
+                        Spacer()
                     }
                 }
                 if goHome {
@@ -142,6 +149,7 @@ struct SignUpFlow: View {
             currentStep = nextStep
         }
     }
+    
 }
 
 #Preview {

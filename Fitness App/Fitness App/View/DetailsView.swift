@@ -9,9 +9,10 @@ import SwiftUI
 
 struct DetailsView: View {
     
-    @State private var feet = ""
-    @State private var inches = ""
-    @State private var bodyWeight = ""
+//    @State private var feet = ""
+//    @State private var inches = ""
+//    @State private var bodyWeight = ""
+    @Binding var newUser: UserData
     
     let maxFt = 1
     let maxIn = 2
@@ -42,10 +43,10 @@ struct DetailsView: View {
                     VStack(alignment: .leading) {
                         HStack(alignment: .bottom) {
                             
-                            TextField("", text: $feet, prompt: Text("Ft").foregroundStyle(Color(.systemGray2)))
-                                .onChange(of: feet) { _, newValue in
-                                    feet = String(newValue.prefix(maxFt))}
-                                .modifier(DetailsField())                              
+                            TextField("", text: $newUser.feet, prompt: Text("Ft").foregroundStyle(Color(.systemGray2)))
+                                .onChange(of: newUser.feet) { _, newValue in
+                                    newUser.feet = String(newValue.prefix(maxFt))}
+                                .modifier(DetailsField())
                                 .frame(width: 70, height: 10, alignment: .center)
                             
                             
@@ -56,10 +57,10 @@ struct DetailsView: View {
                             
                             
                             
-                            TextField("", text: $inches, prompt: Text("In").foregroundStyle(Color(.systemGray2)))
-                                .onChange(of: inches) { _, newValue in
-                                    inches = String(newValue.prefix(maxIn))}
-                                .modifier(DetailsField())                                    
+                            TextField("", text: $newUser.inches, prompt: Text("In").foregroundStyle(Color(.systemGray2)))
+                                .onChange(of: newUser.inches) { _, newValue in
+                                    newUser.inches = String(newValue.prefix(maxIn))}
+                                .modifier(DetailsField())
                                 .frame(width: 90, height: 10, alignment: .center)
                             
                             Text("\"")
@@ -72,10 +73,10 @@ struct DetailsView: View {
                   
                     
                     HStack(alignment: .lastTextBaseline) {
-                            TextField("", text: $bodyWeight, prompt: Text("Weight").foregroundStyle(Color(.systemGray2)))
-                                    .onChange(of: bodyWeight) { _, newValue in
-                                        bodyWeight = String(newValue.prefix(maxLbs))}
-                                    .modifier(DetailsField()) 
+                        TextField("", text: $newUser.weight, prompt: Text("Weight").foregroundStyle(Color(.systemGray2)))
+                            .onChange(of: newUser.weight) { _, newValue in
+                                newUser.weight = String(newValue.prefix(maxLbs))}
+                                    .modifier(DetailsField())
                                     .frame(width: 190, height: 10, alignment: .center)
                         
                         Text("lbs")
@@ -97,6 +98,6 @@ struct DetailsView: View {
     
 }
 
-#Preview {
-    DetailsView()
-}
+//#Preview {
+//    DetailsView(newUser: UserData)
+//}
