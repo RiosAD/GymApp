@@ -19,7 +19,7 @@ struct Root: View {
 //            }
 //        }
         
-        StartUp()
+        SignUpFlow()
     }
 }
 

@@ -17,6 +17,7 @@ struct SignUpFlow: View {
     @State private var currentStep: SignUpFlowStep = .createAccount
     @State private var goHome = false
     @State private var newUser = UserData()
+    @EnvironmentObject var viewModel: AuthModel
     
     var body: some View {
         NavigationStack {
@@ -90,6 +91,10 @@ struct SignUpFlow: View {
                             if currentStep == .addName {
                                 withAnimation(.snappy) {
                                     Button {
+                                        Task {
+                                            try await viewModel.createUser(withEmail: newUser.email, password: newUser.password, firstName: newUser.firstName, lastName: newUser.lastName, birthDate: newUser.DOB, feet: newUser.feet, inches: newUser.inches, weight: newUser.weight)
+                                            newUser.resetUserData()
+                                        }
                                         
                                     } label: {
                                         Text("Finish")
