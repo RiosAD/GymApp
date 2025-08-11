@@ -10,9 +10,6 @@ import SwiftUI
 struct ProgessBar: View {
    
     let currentStep: SignUpFlowStep
-//    @State var flowStep: [SignUpFlowStep]
-//    @Binding var currentProgress: Int
-//    var stepCurrent = 3
     
     var body: some View {
 

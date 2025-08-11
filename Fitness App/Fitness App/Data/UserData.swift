@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class UserData {
+class UserData: Identifiable, Codable {
     
      var id: String = UUID().uuidString
      var email: String = ""
@@ -24,8 +24,8 @@ class UserData {
         id = UUID().uuidString
         email = ""
         password = ""
-        firstName = ""
-        lastName = ""
+        firstName = " "
+        lastName = " "
         DOB = Date()
         feet = "0"
         inches = "0"
