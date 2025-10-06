@@ -88,5 +88,5 @@ struct NameView: View {
 }
 
 //#Preview {
-//    NameView(newUser: UserData)
+//    NameView()
 //}

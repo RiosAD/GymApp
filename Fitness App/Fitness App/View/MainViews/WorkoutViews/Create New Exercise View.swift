@@ -102,6 +102,7 @@ struct Create_New_Exercise_View: View {
                             
                         }, label: {
                             Text("Done")
+                                .foregroundStyle(Color(.lightWhite))
                                 .font(.title3)
                                 .fontWeight(.bold)
                         })

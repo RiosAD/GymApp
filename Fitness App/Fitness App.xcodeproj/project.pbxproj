@@ -17,6 +17,7 @@
 		4920B9092CF111E6000ABA1A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4920B9082CF111E6000ABA1A /* FirebaseStorage */; };
 		492CE72C2DEF758B008EEC97 /* ProgessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CE72B2DEF758B008EEC97 /* ProgessBar.swift */; };
 		493529F32DD3B2BA00724CF7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493529F22DD3B2BA00724CF7 /* UserData.swift */; };
+		493571012E7779A300DAEDA4 /* SideMenuSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493571002E7779A300DAEDA4 /* SideMenuSettingsView.swift */; };
 		493634982D6903FD0097F61E /* SignUpFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493634972D6903FD0097F61E /* SignUpFlow.swift */; };
 		493994D32DA37FC4008379AA /* PasswordFieldToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493994D22DA37FC4008379AA /* PasswordFieldToggle.swift */; };
 		4939C9302D41A82B005DACBC /* BirthdateSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4939C92F2D41A82B005DACBC /* BirthdateSheet.swift */; };
@@ -55,6 +56,7 @@
 		4920B9012CF1108F000ABA1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		492CE72B2DEF758B008EEC97 /* ProgessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgessBar.swift; sourceTree = "<group>"; };
 		493529F22DD3B2BA00724CF7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		493571002E7779A300DAEDA4 /* SideMenuSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettingsView.swift; sourceTree = "<group>"; };
 		493634972D6903FD0097F61E /* SignUpFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFlow.swift; sourceTree = "<group>"; };
 		493994D22DA37FC4008379AA /* PasswordFieldToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldToggle.swift; sourceTree = "<group>"; };
 		4939C92F2D41A82B005DACBC /* BirthdateSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateSheet.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				49A2C7CD2C4044BB000E6B7D /* ExercisesView.swift */,
 				49D71B612C45B8CF00883CCC /* NutritionView.swift */,
 				49D71B682C45BA7C00883CCC /* ProfileView.swift */,
+				493571002E7779A300DAEDA4 /* SideMenuSettingsView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				49B8488B2CAC64120022F9BE /* NewExerciseDisclosureStyle.swift in Sources */,
 				49D84EC62C90E14600CA0016 /* ExerciseGroupView.swift in Sources */,
 				49991E4A2C94A21700DAD4F8 /* WorkoutForm.swift in Sources */,
+				493571012E7779A300DAEDA4 /* SideMenuSettingsView.swift in Sources */,
 				49A2C7CE2C4044BB000E6B7D /* ExercisesView.swift in Sources */,
 				491B5E112BAF04DD0078F00B /* Fitness_AppApp.swift in Sources */,
 				493C677A2D36D4030022314F /* Root.swift in Sources */,

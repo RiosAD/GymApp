@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var showMenu = false
     
     var body: some View {
-       ZStack {
+        NavigationStack {
+            ZStack {
                 backgroundGradient
                     .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 5) {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 110))
-                            .foregroundStyle(Color(.lightWhite).opacity(0.85))
-                            .padding(.vertical)
-                        
+                    Image(systemName: "person.crop.circle.fill")
+                        .font(.system(size: 110))
+                        .foregroundStyle(Color(.lightWhite).opacity(0.85))
+                        .padding(.vertical)
+                    
                     HStack(alignment: .center) {
                         
                         Text("Angel Nava")
@@ -63,9 +65,9 @@ struct ProfileView: View {
                                         .frame(width: 95, height: 2)
                                 }
                             
-//                            Text("\(User.testUser.weight)")
-//                                .font(.system(size: 30))
-//                                .foregroundStyle(Color(.lightWhite))
+                            //                            Text("\(User.testUser.weight)")
+                            //                                .font(.system(size: 30))
+                            //                                .foregroundStyle(Color(.lightWhite))
                             
                             Text("175")
                                 .font(.system(size: 30))
@@ -98,7 +100,23 @@ struct ProfileView: View {
                     
                     Spacer()
                 }
+                
+                SideMenuSettingsView(isShowing: $showMenu)
+                    .accentColor(.blue)
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showMenu.toggle()
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                    .foregroundStyle(Color(showMenu ? .clear : .lightWhite))
+                    .padding(.horizontal, 10)
+
+                }
+            }
+        }
     }
 }
 
