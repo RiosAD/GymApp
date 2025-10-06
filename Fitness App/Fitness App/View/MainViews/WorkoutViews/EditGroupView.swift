@@ -20,7 +20,7 @@ struct EditGroupView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                backgroundRadial
+                backgroundGradient
                     .ignoresSafeArea()
                 
                 VStack {
@@ -89,6 +89,7 @@ struct EditGroupView: View {
                         dismiss()
                     }, label: {
                         Text("Done")
+                            .foregroundStyle(Color(.lightWhite))
                             .font(.title3)
                             .fontWeight(.bold)
                             .shadow(radius: 5)

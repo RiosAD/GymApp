@@ -19,7 +19,7 @@ struct Root: View {
 //            }
 //        }
         
-        SignUpFlow()
+        TabBar()
     }
 }
 
